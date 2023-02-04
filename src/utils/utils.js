@@ -13,3 +13,4 @@ export const createNewUserDocument = async (id, email, displayName) => {
         console.log(error.message)
     }
 }
+

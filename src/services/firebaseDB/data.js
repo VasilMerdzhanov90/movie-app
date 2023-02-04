@@ -1,4 +1,4 @@
-import { collection, db, getDocs } from "../firebase/config.js";
+import { collection, db, getDocs } from "../../firebase/config.js";
 
 
 export function useCollection(collectionRef) {

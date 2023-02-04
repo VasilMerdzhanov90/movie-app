@@ -1,5 +1,5 @@
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from '../firebase/config.js';
-import { createNewUserDocument } from '../utils/utils.js';
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from '../../firebase/config.js';
+import { createNewUserDocument } from '../../utils/utils.js';
 
 
 export function userActions() {
