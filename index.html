@@ -7,17 +7,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./app.js" type="module"></script>
     <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="shortcut icon" href="./public/acets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Movie Place</title>
 </head>
 
 <body>
+    <main>
+        <div id="navigation"></div>
+        <div id="root">
 
-    <form>
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <input type="text" name="displayName" placeholder="username">
-        <input type="submit" value="signIn">
-    </form>
+        </div>
+
+        <!-- <section class="main">
+            <div class="car">
+                <h2 class="main-title">UPCOMING MOVIES</h2>
+                <div class="upcoming">
+                    <div class="button-controllers">
+                        <button class="prev">prev</button>
+                        <button class="next">next</button>
+                    </div>
+                    <div class="container">
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/1057/4964/products/Avengers-Endgame-Vintage-Movie-Poster-Original-1-Sheet-27x41_300x@2x.jpg?v=1670821335"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/1057/4964/products/Avengers-Endgame-Vintage-Movie-Poster-Original-1-Sheet-27x41_300x@2x.jpg?v=1670821335"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/1057/4964/products/Avengers-Endgame-Vintage-Movie-Poster-Original-1-Sheet-27x41_300x@2x.jpg?v=1670821335"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/1057/4964/products/Avengers-Endgame-Vintage-Movie-Poster-Original-1-Sheet-27x41_300x@2x.jpg?v=1670821335"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/wandavision.mp_240x360_crop_center.progressive.jpg?v=1614371756"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+                        <div class="movie">
+                            <img src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
+                                alt="poster">
+                            <p class="movie-title">movie title</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section> -->
+
+        <!-- top layout -->
+        <!-- <div class="wrapper">
+            <h3 class="genre-title">TOP UPCOMING</h3>
+            <button id="left">
+                < </button>
+                    <div class="courosel">
+                        <img class="main-poster"
+                            src="https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://static.posters.cz/image/750/posters/black-adam-out-of-the-darkness-i146557.jpg"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://i0.wp.com/batman-news.com/wp-content/uploads/2022/09/Black-Adam-Character-Poster-Black-Adam-01.jpg?fit=2764%2C4096&quality=80&strip=info&ssl=1"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://www.xfire.com/wp-content/uploads/2022/09/DCEU-Black-Adam-new-poster-trailer-jsa-superman-Stories5.jpg"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://static.posters.cz/image/750/posters/black-adam-out-of-the-darkness-i146557.jpg"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://i0.wp.com/batman-news.com/wp-content/uploads/2022/09/Black-Adam-Character-Poster-Black-Adam-01.jpg?fit=2764%2C4096&quality=80&strip=info&ssl=1"
+                            alt="poster">
+                        <img class="main-poster"
+                            src="https://www.xfire.com/wp-content/uploads/2022/09/DCEU-Black-Adam-new-poster-trailer-jsa-superman-Stories5.jpg"
+                            alt="poster">
+                    </div>
+                    <button id="right"> > </button>
+        </div> -->
+
+    </main>
+
 </body>
 
 </html>

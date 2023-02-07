@@ -1,37 +1,44 @@
 const baseURL = 'https://api.themoviedb.org/3';
 const trailerURL = 'https://api.themoviedb.org/3/movie/';
 
-import { requestLinks, urlSearchByQuery } from "./linksAndAPI.js";
+import { movieRequestLinks } from "./linksAndAPI.js";
 
 
 export function request() {
     let isPending = false;
     let errorResolving = null;
 
-    const getAllGenre = async () => {
+    const getNowPlaying = async () => {
+        const response = await fetch(baseURL + movieRequestLinks.upcoming);
+        return response.json();
+    }
+
+    const getByCategory = async (category) => {
+        return movieRequestLinks[category]
+    }
+
+    const getAllCategories = async () => {
         isPending = true;
         errorResolving = null;
         try {
-            const [netflixOriginal, topRated, trending, actionMovies, comedyMovies, horrorMovies, romanceMovies, documentaryMovies] = await Promise.all([
-                fetch(baseURL + requestLinks.netflixOriginal),
-                fetch(baseURL + requestLinks.topRated),
-                fetch(baseURL + requestLinks.trending),
-                fetch(baseURL + requestLinks.actionMovies),
-                fetch(baseURL + requestLinks.comedyMovies),
-                fetch(baseURL + requestLinks.horrorMovies),
-                fetch(baseURL + requestLinks.romanceMovies),
-                fetch(baseURL + requestLinks.documentaryMovies),
+            const [upcoming, popular, trending, topRated, actionMovies, comedyMovies, horrorMovies] = await Promise.all([
+                fetch(baseURL + movieRequestLinks.upcoming),
+                fetch(baseURL + movieRequestLinks.popular),
+                fetch(baseURL + movieRequestLinks.trending),
+                fetch(baseURL + movieRequestLinks.topRated),
+                fetch(baseURL + movieRequestLinks.actionMovies),
+                fetch(baseURL + movieRequestLinks.comedyMovies),
+                fetch(baseURL + movieRequestLinks.horrorMovies),
             ]);
             isPending = false;
             return Promise.all([
-                { netflix: await netflixOriginal.json() },
-                { topRated: await topRated.json() },
+                { upcoming: await upcoming.json() },
+                { popular: await popular.json() },
                 { trending: await trending.json() },
+                { topRated: await topRated.json() },
                 { action: await actionMovies.json() },
                 { comedy: await comedyMovies.json() },
                 { horror: await horrorMovies.json() },
-                { romance: await romanceMovies.json() },
-                { documentary: await documentaryMovies.json() },
             ]);
 
         } catch (error) {
@@ -62,7 +69,7 @@ export function request() {
     const videoDataLoader = async (movieId) => {
         isPending = true;
         try {
-            const response = await fetch(trailerURL + movieId + requestLinks.videoSearch);
+            const response = await fetch(trailerURL + movieId + movieRequestLinks.videoSearch);
             if (response.ok) {
                 isPending = false;
                 return response.json()
@@ -77,5 +84,5 @@ export function request() {
     }
 
 
-    return { isPending, errorResolving, getAllGenre, searchByKeyWord, videoDataLoader }
+    return { isPending, errorResolving, getAllGenre: getAllCategories, searchByKeyWord, videoDataLoader, getNowPlaying, getByCategory }
 }
