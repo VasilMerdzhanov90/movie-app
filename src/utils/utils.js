@@ -16,14 +16,6 @@ export const createNewUserDocument = async (id, email, displayName) => {
     }
 };
 
-export const arrayGenerator = (num) => {
-    const arr = [];
-
-    for (let i = 1; i < num; i++) {
-        arr.push(i);
-    }
-    return arr;
-};
 
 export const isPendingHandler = (pending) => {
     if (pending) {
@@ -46,4 +38,22 @@ export const categoryListGenerator = () => {
     <a class="category" href="/movies/${x}/2">${x}</a>
 </li>`
   )}`;
+};
+
+
+export const selectOptionsGenerator = (num) => {
+    const arr = [];
+    let pages = num;
+
+    if (num > 500) {
+        pages = 500;
+    }
+
+    for (let i = 1; i < pages; i++) {
+        arr.push(i);
+    }
+
+    return html`
+    ${arr.map((x) => html`<option value="${x}" label="${x}">${x}</option>`)}
+`;
 };
