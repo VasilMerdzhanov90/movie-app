@@ -1,7 +1,13 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
 import { requestData } from "../../services/movieRequests.js";
+import { categoryListGenerator } from "../../utils/utils.js";
+
 
 const mainTemplate = (data) => html`
+<div class="movies-container">
+   <ul class="categories-list">
+      ${categoryListGenerator()}
+   </ul>
    ${data.map(row => html`
    <div class="category-container" id="${Object.keys(row)[0]}">
       <h2>${Object.keys(row)[0]}</h2>
@@ -12,9 +18,8 @@ const mainTemplate = (data) => html`
       }
       </div>
    </div>
-   <button class="btn">see all pages</button>
    `)}
-
+</div>
 `
 
 const templateRow = (movie) => html`
@@ -29,17 +34,20 @@ const templateRow = (movie) => html`
 
 export async function moviesView(ctx) {
    const { loadMovies } = requestData();
-
    const result = await Promise.all([
-      { upcoming: await loadMovies('upcoming') },
-      { playing: await loadMovies('nowPlaying') },
-      { popular: await loadMovies('popular') },
-      { trending: await loadMovies('trending') },
-      { top: await loadMovies('topRated') }
+      { upcoming: await loadMovies('upcoming', 1) },
+      { playing: await loadMovies('playing', 1) },
+      { trending: await loadMovies('trending', 1) },
+      { netflix: await loadMovies('netflix', 1) },
+      { action: await loadMovies('action', 1) },
+      { comedy: await loadMovies('comedy', 1) },
+      { horror: await loadMovies('horror', 1) },
+      { horror: await loadMovies('trending', 1) },
    ]);
    ctx.render(() => mainTemplate(result));
 
    const categoryContainer = document.querySelectorAll('div .category-container');
+  
    categoryContainer.forEach(element => {
       const sliderElements = element.children[1];
       sliderElements.querySelectorAll('.left').forEach(btn => {
@@ -48,6 +56,7 @@ export async function moviesView(ctx) {
             sliderElements.scrollLeft -= imageWidth + 5
          })
       })
+
       sliderElements.querySelectorAll('.right').forEach(btn => {
          btn.addEventListener('click', (e) => {
             const imageWidth = categoryContainer[0].querySelector('img').clientWidth

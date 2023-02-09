@@ -1,3 +1,4 @@
+import { isPendingHandler } from "../utils/utils.js";
 import { movieRequestLinks, seriesRequestLinks } from "./tmdb/linksAndAPI.js";
 
 const baseURL = 'https://api.themoviedb.org/3';
@@ -11,25 +12,22 @@ export const urlMovieSearch = 'https://api.themoviedb.org/3/movie/';
 export const urlYouTube = 'https://www.youtube.com/embed/';
 
 
-let error = null;
-let isPending = false;
 
 async function request(fullURL) {
-    isPending = true;
-    error = null;
-
+    isPendingHandler(true)
     try {
         const response = await fetch(fullURL);
         if (response.ok) {
-            isPending = false;
+            isPendingHandler(false)
             return response.json()
         } else {
-            isPending = false;
+            isPendingHandler(false)
             throw new Error(response)
         }
+
     } catch (err) {
-        isPending = false;
-        throw new error(err.message)
+        isPendingHandler(false)
+        throw new Error(err)
     }
 
 }
@@ -43,8 +41,8 @@ export function requestData() {
     };
 
 
-    const loadMovies = async (category) => {
-        url = baseURL + movieRequestLinks[category];
+    const loadMovies = async (category, page) => {
+        url = baseURL + movieRequestLinks[category](page);
         return await request(url);
     };
 

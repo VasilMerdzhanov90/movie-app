@@ -8,12 +8,13 @@ const template = (user) => html`
         <!-- <h1 class="title">MOVIE PLACE</h1> -->
     </div>
     <ul class="links">
+        <li class="link"><a class="link-href" href="/">Home</a></li>
         <li class="link"><a class="link-href" href="/movies">Movies</a></li>
         <li class="link"><a class="link-href" href="/shows">Shows</a></li>
         <li class="link"><a class="link-href" href="/search">Search</a></li>
-        ${!user ? html`<li class="link"><a class="link-href" href="/login">Login/Register</a></li>` :
+        <!-- ${!user ? html`<li class="link"><a class="link-href" href="/login">Login/Register</a></li>` :
             html`<button>Logout</button>`
-        }
+        } -->
 
     </ul>
 </nav>

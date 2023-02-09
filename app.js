@@ -1,16 +1,20 @@
 import page from './node_modules/page/page.mjs'
 import { addRender } from './src/middlewares/addRender.js'
-import { requestData } from './src/services/movieRequests.js'
+import { loader } from './src/middlewares/loader.js'
+import { preloadData } from './src/middlewares/preloadData.js'
 import { homeView } from './src/views/home/home.js'
 import { moviesView } from './src/views/movies/movies.js'
+import { movieByCategoryView } from './src/views/movies/moviesByCategory.js'
 import { navigationComponent } from './src/views/navigation/navigation.js'
 
 //middlewares
 page(addRender)
-
 page(navigationComponent)
+page(loader);
+//links
 page('/', homeView)
 page('/movies', moviesView)
+page('/movies/:category/:page', preloadData, movieByCategoryView)
 page('/shows', () => console.log('shows'))
 page('/login', () => console.log('login/register'))
 

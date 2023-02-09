@@ -10,7 +10,6 @@ const template = () => html`
          <button class="next">next</button>
          <ul class="movies">
             <li class="movie">
-               <img src="$1" alt="poster" />
                <p class="poster-title">title</p>
             </li>
          </ul>

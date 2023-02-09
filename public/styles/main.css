@@ -1,0 +1,23 @@
+@import url(./reset.css);
+@import url(./navigation.css);
+@import url(./movies.css);
+@import url('./loader.css');
+
+
+:root {
+    --main-text-color: rgb(240, 240, 240);
+    --hover-color: rgb(193, 193, 193);
+}
+
+
+body {
+    position: relative;
+    /* padding: 0 35px; */
+    padding: 0 25px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #171717;
+    /* background: rgb(0, 0, 0);
+    background: linear-gradient(153deg, rgba(0, 0, 0, 1) 0%, rgba(41, 0, 0, 1) 66%); */
+}

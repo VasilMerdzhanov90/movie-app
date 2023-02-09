@@ -21,10 +21,11 @@ input {
     /* font-family: 'Lato', sans-serif; */
     font-family: 'Montserrat', sans-serif;
     color: var(--main-text-color);
+    text-decoration: none;
 }
 
 *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-    all: unset;
+    /* all: unset; */
     display: revert;
 }
 
