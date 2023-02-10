@@ -6,6 +6,7 @@ import { homeView } from './src/views/home/home.js'
 import { moviesView } from './src/views/movies/movies.js'
 import { movieByCategoryView } from './src/views/movies/moviesByCategory.js'
 import { navigationComponent } from './src/views/navigation/navigation.js'
+import { searchView } from './src/views/search/search.js'
 
 //middlewares
 page(addRender)
@@ -16,6 +17,8 @@ page('/', homeView)
 page('/movies', moviesView)
 page('/movies/:category/:page', preloadData, movieByCategoryView)
 page('/shows', () => console.log('shows'))
+page('/search', searchView)
+page('/search?query=test', homeView)
 page('/login', () => console.log('login/register'))
 
 

@@ -1,19 +1,23 @@
 @import url(./reset.css);
 @import url(./navigation.css);
 @import url(./movies.css);
+@import url(./search.css);
+@import url('./mainMoviesSection.css');
 @import url('./loader.css');
 
 
 :root {
     --main-text-color: rgb(240, 240, 240);
-    --hover-color: rgb(193, 193, 193);
+    /* --hover-color: rgb(193, 193, 193); */
+    --hover-color:#af4058;
 }
 
 
 body {
     position: relative;
     /* padding: 0 35px; */
-    padding: 0 25px;
+    padding: 0 20px;
+    margin: 0;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
