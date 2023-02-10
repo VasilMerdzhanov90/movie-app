@@ -20,5 +20,6 @@ export function searchView(ctx) {
         const url = new URL(window.location);
         url.searchParams.set('query', e.target.value);
         window.history.pushState({}, '', url)
+        console.log(ctx)
     }
 }

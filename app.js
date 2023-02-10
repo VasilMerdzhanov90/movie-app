@@ -18,9 +18,7 @@ page('/movies', moviesView)
 page('/movies/:category/:page', preloadData, movieByCategoryView)
 page('/shows', () => console.log('shows'))
 page('/search', searchView)
-page('/search?query=test', homeView)
 page('/login', () => console.log('login/register'))
-
 
 page();
 
