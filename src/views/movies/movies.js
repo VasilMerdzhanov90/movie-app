@@ -1,16 +1,16 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { requestData } from "../../services/movieRequests.js";
-import { categoryListGenerator } from "../../utils/utils.js";
+import { requestData } from "../../services/requestDataTMDB.js";
+import { categoryListGenerator, sliderPreview } from "../../utils/utils.js";
 
 
 const mainTemplate = (data) => html`
 <div class="movies-container">
    <ul class="categories-list">
-      ${categoryListGenerator()}
+      ${categoryListGenerator('movies')}
    </ul>
    ${data.map(row => html`
    <div class="category-container" id="${Object.keys(row)[0]}">
-      <h2>${Object.keys(row)[0]}</h2>
+      <h2>${Object.keys(row)[0]} movies</h2>
       <div class="slider">
          <i class="fa-sharp fa-solid fa-arrow-left left"></i>
          <i class="fa-sharp fa-solid fa-arrow-right right"></i>
@@ -34,6 +34,7 @@ const templateRow = (movie) => html`
 
 export async function moviesView(ctx) {
    const { loadMovies } = requestData();
+
    const result = await Promise.all([
       { upcoming: await loadMovies('upcoming', 1) },
       { playing: await loadMovies('playing', 1) },
@@ -46,24 +47,6 @@ export async function moviesView(ctx) {
    ]);
    ctx.render(() => mainTemplate(result));
 
-   const categoryContainer = document.querySelectorAll('div .category-container');
-  
-   categoryContainer.forEach(element => {
-      const sliderElements = element.children[1];
-      sliderElements.querySelectorAll('.left').forEach(btn => {
-         btn.addEventListener('click', (e) => {
-            const imageWidth = categoryContainer[0].querySelector('img').clientWidth
-            sliderElements.scrollLeft -= imageWidth + 5
-         })
-      })
-
-      sliderElements.querySelectorAll('.right').forEach(btn => {
-         btn.addEventListener('click', (e) => {
-            const imageWidth = categoryContainer[0].querySelector('img').clientWidth
-            sliderElements.scrollLeft += imageWidth + 5
-         })
-      })
-
-   })
+   sliderPreview(document.querySelectorAll('div .category-container'));
 }
 

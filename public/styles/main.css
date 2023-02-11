@@ -25,3 +25,9 @@ body {
     /* background: rgb(0, 0, 0);
     background: linear-gradient(153deg, rgba(0, 0, 0, 1) 0%, rgba(41, 0, 0, 1) 66%); */
 }
+
+.no-content {
+    margin-top: 4rem;
+    font-size: 1.2rem;
+    text-align: center;
+}

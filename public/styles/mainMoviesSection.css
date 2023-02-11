@@ -60,9 +60,3 @@
     border: 1px solid var(--main-text-color);
     border-radius: 4px;
 }
-
-.no-content {
-    margin-top: 4rem;
-    font-size: 3rem;
-    text-align: center;
-}
