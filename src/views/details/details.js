@@ -1,31 +1,39 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { spanGenerator } from "../../utils/utils.js";
+import {
+  productionCompaniesGenerator,
+  spanGenerator,
+} from "../../utils/utils.js";
 
 const template = (data) => html`
   <div class="details-container">
     <section class="top-section">
-      <h3 class="title">${data.title}</h3>
-      <p><span>Release data:</span> ${data.release_date}</p>
-      <p><span>Runtime:</span> ${data.runtime} minutes</p>
+      <h3 class="title">${data.result.title}</h3>
+      <p><span>Release date:</span> ${data.result.release_date}</p>
+      <p><span>Runtime:</span> ${data.result.runtime} minutes</p>
     </section>
     <section class="media-section">
       <img
-        src="http://image.tmdb.org/t/p/w300${!data.poster_path
-          ? data.backdrop_path
-          : data.poster_path}"
+        src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
+          ? data.result.backdrop_path
+          : data.result.poster_path}"
         alt="poster"
       />
       <div>
-        <h3>TODO trailer and videos</h3>
+        <h3>TODO trailer</h3>
       </div>
     </section>
     <section class="details-section">
-      <div class="genre-container">${spanGenerator(data.genres)}</div>
-      <a href="${data.homepage}">Go to homepage.</a>
-      <div class="overview">${data.overview}</div>
+      <div class="genre-container">${spanGenerator(data.result.genres)}</div>
+      <a href="${data.result.homepage}">Go to homepage.</a>
+      <div class="overview">${data.result.overview}</div>
+      <div class="prod-countries">
+        ${spanGenerator(data.result.production_countries)}
+      </div>
+      <div class="prod-companies">
+        ${productionCompaniesGenerator(data.result.production_companies)}
+      </div>
     </section>
   </div>
-  <p><span>Original language:</span> ${data.original_language}</p>
 `;
 
 export function detailsView(ctx) {

@@ -1,6 +1,6 @@
 import { requestData } from "../services/requestDataTMDB.js";
 
-const { loadMovies, loadSeries, searchById } = requestData();
+const { loadMovies, loadSeries, searchById, getCredits } = requestData();
 
 export async function preloadMovies(ctx, next) {
   let result = await loadMovies(ctx.params.category, ctx.params.page);
@@ -21,11 +21,33 @@ export async function preloadSeries(ctx, next) {
   ctx.data.total_pages = result.total_pages;
   next();
 }
+
 export async function preloadDetails(ctx, next) {
   const category = ctx.params.category;
   const id = ctx.params.id;
-
+  ctx.data = {};
+  const crew = {
+    director: null,
+    producers: [],
+    writers: [],
+  };
   let result = await searchById(id, category);
-  ctx.data = result;
+  let credits = await getCredits(id, category);
+
+  ctx.data.result = result;
+  ctx.data.credits = credits;
+
+  credits.crew.map((element) => {
+    if (element.job == "Director") {
+      return (crew.director = element.name);
+    } else if (element.job == "Producer") {
+      return crew.producers.push(element.name);
+    } else if (element.department == "Writing") {
+      return crew.writers.push(element.name);
+    }
+  });
+
+  ctx.data.credits.crew = crew;
+  console.log(crew);
   next();
 }

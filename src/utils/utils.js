@@ -23,12 +23,30 @@ export const spanGenerator = (genres) => {
   let result = "";
 
   if (genres.length != 0) {
-    return (result = Object.values(genres).map(
+    result = Object.values(genres).map(
       (x) => html`<span class="span-elips">${x.name}</span>`
-    ));
-  } else {
-    return result;
+    );
   }
+  return result;
+};
+
+export const productionCompaniesGenerator = (companies) => {
+  let result = "";
+  if (companies.length != 0) {
+    result = companies.map((x) => {
+      if (x.logo_path !== null) {
+        return html`
+          <div class="company-container">
+            <div>
+              <img src="http://image.tmdb.org/t/p/w200${x.logo_path}" />
+            </div>
+            <p>${x.name}</p>
+          </div>
+        `;
+      }
+    });
+  }
+  return result;
 };
 
 export const sliderPreview = (categoryContainer) => {

@@ -29,6 +29,8 @@ export const movieRequestLinks = {
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}`,
   videoSearch: `/videos?api_key=${API_KEY}&language=en-US`,
   movieSearchById: (id) => `/movie/${id}?api_key=${API_KEY}&language=en-US`,
+  movieCredits: (id) =>
+    `/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
 };
 
 export const seriesRequestLinks = {
@@ -44,4 +46,6 @@ export const seriesRequestLinks = {
   seriesSearch: (query, page = 1) =>
     `/search/tv?api_key=${API_KEY}&language=en-US&page=${page}&query=${query}`, // ??????????
   seriesSearchById: (id) => `/tv/${id}?api_key=${API_KEY}&language=en-US`,
+  seriesCredits: (id) =>
+    `/tv/${id}/aggregate_credits?api_key=${API_KEY}&language=en-US`,
 };

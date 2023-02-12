@@ -65,6 +65,15 @@ export function requestData() {
 
     return await request(url);
   };
+  const getCredits = async (id, category) => {
+    const urlStructure =
+      category === "movies"
+        ? movieRequestLinks.movieCredits(id)
+        : seriesRequestLinks.seriesCredits(id);
+    url = baseURL + urlStructure;
+
+    return await request(url);
+  };
 
   return {
     loadMovies,
@@ -73,5 +82,6 @@ export function requestData() {
     searchSeries,
     videoDataLoader,
     searchById,
+    getCredits
   };
 }
