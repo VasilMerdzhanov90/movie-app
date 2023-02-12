@@ -56,5 +56,22 @@ export function requestData() {
     return await request(url);
   };
 
-  return { loadMovies, searchMovie, loadSeries, searchSeries, videoDataLoader };
+  const searchById = async (id, category) => {
+    const urlStructure =
+      category === "movies"
+        ? movieRequestLinks.movieSearchById(id)
+        : seriesRequestLinks.seriesSearchById(id);
+    url = baseURL + urlStructure;
+
+    return await request(url);
+  };
+
+  return {
+    loadMovies,
+    searchMovie,
+    loadSeries,
+    searchSeries,
+    videoDataLoader,
+    searchById,
+  };
 }

@@ -3,18 +3,13 @@ import { requestData } from "../../services/requestDataTMDB.js";
 
 const { searchMovie, searchSeries } = requestData();
 
-let loadedResults = {
-  results: [],
-  total_pages: null,
-};
-
-let currentPage = 1;
 let context;
+let currentPage = 1;
+let currentSearch = "";
+let totalPages = null;
+let totalResults = null;
+let currentType = null;
 
-let totalResults = {
-  searchedString: null,
-  total: null,
-};
 const template = (onSearchInputHandler) => html`
   <div class="search-container">
     <form @submit="${onSearchInputHandler}">
@@ -33,15 +28,15 @@ const templateCorrectInput = () => html` <div class="no-content">
   <h2>Search input must be at least 3 characters!</h2>
 </div>`;
 
-const resultTemplate = (data, type, string) => html`
+const resultTemplate = (data) => html`
   <div class="category-container">
     <p class="search-summary">
-      ${totalResults.total} results found for: "${totalResults.searchedString}"
+      ${totalResults} results found for: "${currentSearch}"
     </p>
     <ul>
-      ${data.map(
+      ${data.results.map(
         (x) => html` <li>
-          <a href="/details/${x.id}">
+          <a href="/details/${currentType}/${x.id}">
             <img
               src="http://image.tmdb.org/t/p/w300${!x.poster_path
                 ? x.backdrop_path
@@ -53,14 +48,21 @@ const resultTemplate = (data, type, string) => html`
         </li>`
       )}
     </ul>
-    ${loadedResults.total_pages !== 1 && loadedResults.total_pages > currentPage
-      ? html`<button
-          class="load-btn"
-          @click=${() => handleSearch(string, type, true)}
-        >
-          Load more
-        </button>`
-      : ""}
+    <div class="btn-pagination-container">
+      ${currentPage > 1
+        ? html`<i
+            class=" fa-sharp fa-solid fa-arrow-left left"
+            @click="${() => handleSearch(currentSearch, currentType, "prev")}"
+          ></i>`
+        : ""}
+      <span>page ${currentPage} of ${totalPages}</span>
+      ${currentPage < totalPages
+        ? html`<i
+            class="fa-sharp fa-solid fa-arrow-right right"
+            @click="${() => handleSearch(currentSearch, currentType, "next")}"
+          ></i>`
+        : ""}
+    </div>
   </div>
 `;
 
@@ -70,10 +72,12 @@ export function searchView(ctx) {
 
   async function onSearchHandler(e) {
     e.preventDefault();
+
     const formData = Object.fromEntries(new FormData(e.target));
 
     const searchString = formData.query;
     const searchType = formData.type;
+
     if (searchString.length < 3) {
       ctx.render(
         templateCorrectInput,
@@ -81,13 +85,22 @@ export function searchView(ctx) {
       );
       return;
     } else {
-      handleSearch(searchString, searchType, false);
+      handleSearch(searchString, searchType);
     }
     e.target.reset();
   }
 }
 
-async function handleSearch(string, type, pushPages) {
+async function handleSearch(string, type, page) {
+  if (page === "next") {
+    currentPage++;
+  } else if (page === "prev") {
+    currentPage--;
+  } else {
+    currentPage = 1;
+    currentSearch = string;
+    currentType = type;
+  }
   let result =
     type === "movies"
       ? await searchMovie(string, currentPage)
@@ -95,27 +108,10 @@ async function handleSearch(string, type, pushPages) {
   result.results = result.results.filter(
     (x) => x.backdrop_path !== null || x.poster_path !== null
   );
-  currentPage++;
 
-  for (let element of result.results) {
-    loadedResults.results.push(element);
-  }
-
-  loadedResults.total_pages = JSON.parse(JSON.stringify(result.total_pages));
-  if (pushPages) {
-    context.render(
-      () => resultTemplate(loadedResults.results, type, string),
-      document.querySelector(".search-results")
-    );
-    console.log(loadedResults);
-  } else {
-    console.log(loadedResults);
-    totalResults.total = result.total_results;
-    totalResults.searchedString = string;
-    currentPage = 1;
-    context.render(
-      () => resultTemplate(result.results, type, string),
-      document.querySelector(".search-results")
-    );
-  }
+  totalPages = result.total_pages;
+  totalResults = result.total_results;
+  currentSearch = string;
+  currentType = type;
+  context.render(() => resultTemplate(result));
 }

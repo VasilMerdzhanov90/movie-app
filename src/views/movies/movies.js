@@ -24,7 +24,7 @@ const mainTemplate = (data) => html`
 
 const templateRow = (movie) => html`
    <div class="movie-container">
-      <a href="/${movie.id}">
+      <a href="/details/movies/${movie.id}">
          <img src="http://image.tmdb.org/t/p/w300${!movie.poster_path ? movie.backdrop_path : movie.poster_path}"
             alt="poster">
          <p class="movie-title">${movie.name ? movie.name : movie.title}</p>

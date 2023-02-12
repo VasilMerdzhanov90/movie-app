@@ -19,6 +19,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 30px;
 }
 
 .category-container ul li {
@@ -59,4 +60,13 @@
     padding: 4px 8px;
     border: 1px solid var(--main-text-color);
     border-radius: 4px;
+}
+.btn-pagination-container select{
+    font-size: 1rem;
+    margin: 0 10px;
+    padding: 4px 8px;
+    border: 1px solid var(--main-text-color);
+    border-radius: 4px;
+
+
 }

@@ -21,7 +21,7 @@ const template = (
     <ul>
       ${data.results.map(
         (x) => html` <li>
-          <a href="/details/${x.id}">
+          <a href="/details/${section}/${x.id}">
             <img
               src="http://image.tmdb.org/t/p/w300${!x.poster_path
                 ? x.backdrop_path
