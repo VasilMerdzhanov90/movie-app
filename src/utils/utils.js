@@ -20,14 +20,13 @@ export const createNewUserDocument = async (id, email, displayName) => {
 };
 
 export const spanGenerator = (genres) => {
-  let result = "";
-
+  let result = [];
   if (genres.length != 0) {
-    result = Object.values(genres).map(
-      (x) => html`<span class="span-elips">${x.name}</span>`
-    );
+    genres.map((x) => result.push(x.name));
+    return result.join(', ');
+  } else {
+    return "";
   }
-  return result;
 };
 
 export const productionCompaniesGenerator = (companies) => {
@@ -40,7 +39,7 @@ export const productionCompaniesGenerator = (companies) => {
             <div>
               <img src="http://image.tmdb.org/t/p/w200${x.logo_path}" />
             </div>
-            <p>${x.name}</p>
+            <!-- <p>${x.name}</p> -->
           </div>
         `;
       }
@@ -70,7 +69,6 @@ export const sliderPreview = (categoryContainer) => {
   });
 };
 
-// ********************TEMPLATES********************
 
 export const isPendingHandler = (pending) => {
   if (pending) {
@@ -85,24 +83,7 @@ export const isPendingHandler = (pending) => {
   }
 };
 
-// export const categoryListGenerator = () => {
-//     const movieCategory = Object.keys(movieRequestLinks).slice(0, 8);
-//     const seriesCategory = Object.keys(seriesRequestLinks).slice(0, 4)
 
-//     const movieCategoryTemplate = () => html`${movieCategory.map(
-//         (x) => html`<li class="category-type">
-//     <a class="category" href="/movies/${x}/2">${x}</a>
-// </li>` )}`
-//     const seriesCategoryTemplate = () => html`${seriesCategory.map(
-// (x) => html`<li class="category-type">
-//     <a class="category" href="/series/${x}/2">${x}</a>
-// </li>` )}`
-
-//     return {
-//         movieCategoryTemplate,
-//         seriesCategoryTemplate
-//     }
-// };
 export const categoryListGenerator = (section) => {
   const movieCategory = Object.keys(movieRequestLinks).slice(0, 8);
   const seriesCategory = Object.keys(seriesRequestLinks).slice(0, 4);

@@ -2,3 +2,113 @@
     margin: 35px auto;
     padding: 35px;
 }
+
+.details-container .top-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.details-container .top-content .img-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.details-container .top-content .info-wrapper {
+    margin-top: 25px;
+}
+
+.details-container .top-content .info-wrapper h2 {
+    font-size: 2.3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.details-container .top-content .overview {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.details-container .top-content .overview p,
+.details-container .top-content .overview h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.details-container .top-content .crew {
+    margin: 10px;
+}
+
+.details-container .top-content .crew p {
+    padding: 3px;
+    margin: 0;
+}
+
+.details-container .top-content .prod-companies {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.details-container .top-content .prod-companies img {
+    max-height: 80px;
+}
+
+.details-container .top-content .prod-companies div {
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-container .cast {
+    margin: 25px auto;
+    position: relative;
+}
+.details-container .cast h3{
+    font-size: 2rem;
+    text-align: center;
+}
+.details-container .cast .slider {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.details-container .cast .slider  p{
+    margin: 0;
+    font-size: 1rem;
+}
+.details-container .cast .left,
+.details-container .cast .right {
+    cursor: pointer;
+    position: absolute;
+    font-size: 2rem;
+    border: 1px solid var(--main-text-color);
+    padding: 10px 4px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.525);
+    border-radius: 6px;
+    z-index: 1;
+    transition: padding 220ms ease;
+}
+
+.details-container .cast .left {
+    left: -8px;
+}
+
+.details-container .cast .right {
+    right: -8px;
+}
+
+.details-container .cast .left:hover,
+.details-container .cast .right:hover {
+    padding: 16px 8px;
+}
+
+.details-container .cast .actor-container .img-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+}
