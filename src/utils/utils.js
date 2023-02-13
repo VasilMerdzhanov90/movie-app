@@ -70,7 +70,6 @@ export const sliderPreview = (categoryContainer) => {
   });
 };
 
-// ********************TEMPLATES********************
 
 export const isPendingHandler = (pending) => {
   if (pending) {

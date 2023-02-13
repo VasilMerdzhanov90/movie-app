@@ -4,20 +4,17 @@ import {
   spanGenerator,
 } from "../../utils/utils.js";
 
-const template = (data) => html`
+const template = (data, category) => html`
   <div class="details-container">
     <section class="top-section">
-      <h3 class="title">${data.result.title}</h3>
-      <p><span>Release date:</span> ${data.result.release_date}</p>
-      <p><span>Runtime:</span> ${data.result.runtime} minutes</p>
+      <h3 class="title">${category == 'movies'? data.result.title : data.result.name}</h3>
+      <p><span>Release date:</span> ${category == 'movies'? data.result.release_date : data.result.first_air_date}</p>
+      <p><span>Runtime:</span> ${category == 'movies'?data.result.runtime:data.result.episode_run_time} minutes</p>
     </section>
     <section class="media-section">
-      <img
-        src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
-          ? data.result.backdrop_path
-          : data.result.poster_path}"
-        alt="poster"
-      />
+      <img src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
+      ? data.result.backdrop_path
+      : data.result.poster_path}" alt="poster" />
       <div>
         <h3>TODO trailer</h3>
       </div>
@@ -32,13 +29,48 @@ const template = (data) => html`
       <div class="prod-companies">
         ${productionCompaniesGenerator(data.result.production_companies)}
       </div>
+      <div class="crew">
+        ${data.credits.crew.director !== null ? html`<p><span>Director:</span> ${data.credits.crew.director}</p>` : ''}
+        ${data.credits.crew.producers.length!==0 
+          ? html`<p><span>Producers:</span> ${data.credits.crew.producers.join(', ')}</p>`
+           : ''}
+        ${data.credits.crew.writers.length!==0 
+          ? html`<p><span>Writers:</span> ${data.credits.crew.writers.join(', ')}</p>`
+           : ''}
+      </div>
+    </section>
+    <section class="cast">
+    <h3 class="title">Actor staff:</h3>
+${category == 'movies' ? data.credits.cast.map(templateRowMovies): data.credits.cast.map(templateRowSeries)}
     </section>
   </div>
 `;
 
+const templateRowMovies = (actor) =>html`
+   <div class="actor-container">
+    <div class="img-wrapper">
+      <img src="http://image.tmdb.org/t/p/w200${actor.profile_path}"
+      alt="poster">
+    </div>
+         <p class="actor-name">${actor.name}</p>
+         <p class="role">as ${actor.character}</p>
+        </div>
+   `
+  
+  const templateRowSeries = (actor) =>html`
+  <div class="actor-container">
+   <div class="img-wrapper">
+     <img src="http://image.tmdb.org/t/p/w200${actor.profile_path}"
+     alt="poster">
+   </div>
+        <p class="actor-name">${actor.name}</p>
+        <p class="role">as ${actor.roles[0].character}</p>
+        <p class="episodes-count">Played ${actor.roles[0].episode_count} episodes</p>
+  </div>
+  `
 export function detailsView(ctx) {
-  console.log(ctx.data);
-  ctx.render(() => template(ctx.data));
+  console.log(ctx);
+  ctx.render(() => template(ctx.data,ctx.params.category));
 }
 
 // {
