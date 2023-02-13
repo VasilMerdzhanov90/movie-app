@@ -36,7 +36,7 @@ export const productionCompaniesGenerator = (companies) => {
       if (x.logo_path !== null) {
         return html`
           <div class="company-container">
-            <div>
+            <div class="img-wrapper">
               <img src="http://image.tmdb.org/t/p/w200${x.logo_path}" />
             </div>
             <!-- <p>${x.name}</p> -->
