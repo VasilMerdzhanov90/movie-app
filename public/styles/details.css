@@ -1,4 +1,27 @@
-.details-container {
-    margin: 35px auto;
-    padding: 35px;
+.details-container p{
+    margin: 0;
+}
+.details-container .details-section{
+    display: flex;
+}
+.details-container .top-section .title{
+    font-size: 2.3rem;
+    font-style: italic;
+}
+.details-container .details{
+    border: 1px solid white;
+    padding: 15px;
+}
+.details-container .details .prod-companies{
+    display: flex;
+    align-items: baseline;
+}
+.details-container .details .prod-companies .company-container p{
+    font-size: 0.6rem;
+    text-align: center;
+}
+.details-container .details .prod-companies .company-container .img-wrapper{
+    height: 100%;
+    background-color: whitesmoke;
+    padding: 8px;
 }

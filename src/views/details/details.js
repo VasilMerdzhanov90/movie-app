@@ -5,45 +5,58 @@ import {
 } from "../../utils/utils.js";
 
 const template = (data, category) => html`
+
   <div class="details-container">
+
     <section class="top-section">
       <h3 class="title">${category == 'movies'? data.result.title : data.result.name}</h3>
       <p><span>Release date:</span> ${category == 'movies'? data.result.release_date : data.result.first_air_date}</p>
       <p><span>Runtime:</span> ${category == 'movies'?data.result.runtime:data.result.episode_run_time} minutes</p>
     </section>
-    <section class="media-section">
+
+    <section class="details-section">
       <img src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
       ? data.result.backdrop_path
       : data.result.poster_path}" alt="poster" />
-      <div>
+      <!-- <div>
         <h3>TODO trailer</h3>
-      </div>
-    </section>
-    <section class="details-section">
-      <div class="genre-container">${spanGenerator(data.result.genres)}</div>
-      <a href="${data.result.homepage}">Go to homepage.</a>
-      <div class="overview">${data.result.overview}</div>
-      <div class="prod-countries">
-        ${spanGenerator(data.result.production_countries)}
-      </div>
-      <div class="prod-companies">
-        ${productionCompaniesGenerator(data.result.production_companies)}
-      </div>
-      <div class="crew">
-        ${data.credits.crew.director !== null ? html`<p><span>Director:</span> ${data.credits.crew.director}</p>` : ''}
-        ${data.credits.crew.producers.length!==0 
-          ? html`<p><span>Producers:</span> ${data.credits.crew.producers.join(', ')}</p>`
-           : ''}
+      </div> -->
+      <div class="details">
+        
+        <div class="genre-container">
+          <p>Genre: ${spanGenerator(data.result.genres)}</p>
+        </div>
+
+        <div class="prod-countries">
+          <p>Countries: ${spanGenerator(data.result.production_countries)}</p>
+        </div>
+
+        <div class="prod-companies">
+          ${productionCompaniesGenerator(data.result.production_companies)}
+        </div>
+
+        <div class="crew">
+          ${data.credits.crew.director !== null ? html`<p>Director: <span>${data.credits.crew.director}</span></p>` : ''}
+          ${data.credits.crew.producers.length!==0 
+          ? html`<p>Producers: <span>${data.credits.crew.producers.join(', ')}</span></p>`
+          : ''}
         ${data.credits.crew.writers.length!==0 
-          ? html`<p><span>Writers:</span> ${data.credits.crew.writers.join(', ')}</p>`
-           : ''}
+          ? html`<p>Writers: <span>${data.credits.crew.writers.join(', ')}</span></p>`
+          : ''}
       </div>
-    </section>
-    <section class="cast">
-    <h3 class="title">Actor staff:</h3>
-${category == 'movies' ? data.credits.cast.map(templateRowMovies): data.credits.cast.map(templateRowSeries)}
-    </section>
-  </div>
+
+      <div class="overview">
+        <p>Overview:<span>${data.result.overview}</span></p>
+      </div>
+      ${data.result.homepage ? html`<a href="${data.result.homepage}">Go to homepage.</a>`:''}
+      
+        </div>
+        </div>
+        <section class="cast">
+          <h3 class="title">Actor staff:</h3>
+          ${category == 'movies' ? data.credits.cast.map(templateRowMovies): data.credits.cast.map(templateRowSeries)}
+        </section>
+      </div>
 `;
 
 const templateRowMovies = (actor) =>html`
