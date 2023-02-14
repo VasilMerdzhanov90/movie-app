@@ -4,12 +4,11 @@ import { movieRequestLinks, seriesRequestLinks } from "./tmdb/linksAndAPI.js";
 const baseURL = "https://api.themoviedb.org/3";
 const trailerURL = "https://api.themoviedb.org/3/movie/";
 
-const imageUrl = "http://image.tmdb.org/t/p/w300";
-const baseVideoURL = "https://www.youtube.com/embed/";
+// const baseVideoURL = "https://www.youtube.com/embed/";
 
-export const API_KEY = "ca699f41df4cdcc6f6807864d5581587";
-export const urlMovieSearch = "https://api.themoviedb.org/3/movie/";
-export const urlYouTube = "https://www.youtube.com/embed/";
+//  const API_KEY = "ca699f41df4cdcc6f6807864d5581587";
+//  const urlMovieSearch = "https://api.themoviedb.org/3/movie/";
+//  const urlYouTube = "https://www.youtube.com/embed/";
 
 async function request(fullURL) {
   isPendingHandler(true);
@@ -57,13 +56,11 @@ export function requestData() {
   };
 
   const searchById = async (id, category) => {
-    console.log(category);
     const urlStructure =
       category === "movies"
         ? movieRequestLinks.movieSearchById(id)
         : seriesRequestLinks.seriesSearchById(id);
     url = baseURL + urlStructure;
-    console.log(url);
     return await request(url);
   };
   const getCredits = async (id, category) => {
