@@ -19,15 +19,17 @@ export const createNewUserDocument = async (id, email, displayName) => {
   }
 };
 
-export const spanGenerator = (genres) => {
+export const listGenerator = (genres) => {
   let result = [];
   if (genres.length != 0) {
     genres.map((x) => result.push(x.name));
-    return result.join(', ');
+    return result.join(", ");
   } else {
     return "";
   }
 };
+
+// <<<<<<<<<<TEMPLATES>>>>>>>>>
 
 export const productionCompaniesGenerator = (companies) => {
   let result = "";
@@ -69,7 +71,6 @@ export const sliderPreview = (categoryContainer) => {
   });
 };
 
-
 export const isPendingHandler = (pending) => {
   if (pending) {
     return () => html`
@@ -82,7 +83,6 @@ export const isPendingHandler = (pending) => {
     return null;
   }
 };
-
 
 export const categoryListGenerator = (section) => {
   const movieCategory = Object.keys(movieRequestLinks).slice(0, 7);

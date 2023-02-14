@@ -28,6 +28,7 @@ page("/series", seriesView);
 page("/series/:category/:page", preloadSeries, categoryView);
 page("/search", searchView);
 page("/details/:category/:id", preloadDetails, preloadVideos, detailsView);
+
 page("/login", () => console.log("login/register"));
 
 page();

@@ -1,0 +1,22 @@
+.details-container .media {
+    max-width: fit-content;
+    position: relative;
+}
+
+.details-container .media .videos .slide-videos .video-list {
+    scroll-behavior: smooth;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.details-container .right,
+.details-container .left {
+    padding: 16px 8px;
+}
+
+.details-container .right:hover,
+.details-container .left:hover {
+    padding: 20px 10px;
+}

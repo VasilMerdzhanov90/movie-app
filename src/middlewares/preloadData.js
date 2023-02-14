@@ -23,7 +23,7 @@ export async function preloadSeries(ctx, next) {
 }
 
 export async function preloadDetails(ctx, next) {
-  const category = ctx.params.category;
+  const category = ctx.path.split('/')[2];
   const id = ctx.params.id;
   ctx.data = {};
   const crew = {
@@ -51,7 +51,7 @@ export async function preloadDetails(ctx, next) {
   next();
 }
 export async function preloadVideos(ctx, next) {
-  const category = ctx.params.category;
+  const category = ctx.path.split('/')[2];
   const id = ctx.params.id;
   let videoList = await getVideoList(id, category);
   ctx.data.videoList = videoList

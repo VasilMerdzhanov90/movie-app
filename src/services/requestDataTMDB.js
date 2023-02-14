@@ -57,12 +57,13 @@ export function requestData() {
   };
 
   const searchById = async (id, category) => {
+    console.log(category);
     const urlStructure =
       category === "movies"
         ? movieRequestLinks.movieSearchById(id)
         : seriesRequestLinks.seriesSearchById(id);
     url = baseURL + urlStructure;
-
+    console.log(url);
     return await request(url);
   };
   const getCredits = async (id, category) => {
@@ -75,12 +76,13 @@ export function requestData() {
     return await request(url);
   };
   const getVideoList = async (id, category) => {
-    const urlStructure = category === 'movies'
-      ? movieRequestLinks.videoSearch(id)
-      : seriesRequestLinks.videoSearch(id);
+    const urlStructure =
+      category === "movies"
+        ? movieRequestLinks.videoSearch(id)
+        : seriesRequestLinks.videoSearch(id);
     url = baseURL + urlStructure;
     return await request(url);
-  }
+  };
 
   return {
     loadMovies,
@@ -90,6 +92,6 @@ export function requestData() {
     videoDataLoader,
     searchById,
     getCredits,
-    getVideoList
+    getVideoList,
   };
 }
