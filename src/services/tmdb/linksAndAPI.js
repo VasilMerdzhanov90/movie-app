@@ -13,8 +13,8 @@ export const movieRequestLinks = {
   // popular: (page) => `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`,
   trending: (page) =>
     `/trending/all/week?api_key=${API_KEY}&language=en-US&page=${page}`,
-  netflix: (page) =>
-    `/discover/tv?api_key=${API_KEY}&with_networks=213&page=${page}`,
+  // netflix: (page) =>
+  //   `/discover/tv?api_key=${API_KEY}&with_networks=213&page=${page}`,
   // top:(page) =>  `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   action: (page) =>
     `/discover/movie?api_key=${API_KEY}&with_genres=28&page=${page}`,
@@ -27,7 +27,7 @@ export const movieRequestLinks = {
   // documentary: (page) => `/discover/movie?api_key=${API_KEY}&with_genres=99&page=${page}`,
   movieSearch: (query, page = 1) =>
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}`,
-  videoSearch: `/videos?api_key=${API_KEY}&language=en-US`,
+  videoSearch: (id) => `/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
   movieSearchById: (id) => `/movie/${id}?api_key=${API_KEY}&language=en-US`,
   movieCredits: (id) =>
     `/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
@@ -37,6 +37,8 @@ export const seriesRequestLinks = {
   rated: (page) =>
     `/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
   // latest: (page) => `/tv/latest?api_key=${API_KEY}&language=en-US&page=${page}`,
+  netflix: (page) =>
+    `/discover/tv?api_key=${API_KEY}&with_networks=213&page=${page}`,
   aired: (page) =>
     `/tv/on_the_air?api_key=${API_KEY}&language=en-US&page=${page}`,
   popular: (page) =>
@@ -46,6 +48,7 @@ export const seriesRequestLinks = {
   seriesSearch: (query, page = 1) =>
     `/search/tv?api_key=${API_KEY}&language=en-US&page=${page}&query=${query}`, // ??????????
   seriesSearchById: (id) => `/tv/${id}?api_key=${API_KEY}&language=en-US`,
+  videoSearch: (id) => `/tv/${id}/videos?api_key=${API_KEY}&language=en-US`,
   seriesCredits: (id) =>
     `/tv/${id}/aggregate_credits?api_key=${API_KEY}&language=en-US`,
 };

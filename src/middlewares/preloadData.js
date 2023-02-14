@@ -1,6 +1,6 @@
 import { requestData } from "../services/requestDataTMDB.js";
 
-const { loadMovies, loadSeries, searchById, getCredits } = requestData();
+const { loadMovies, loadSeries, searchById, getCredits, getVideoList } = requestData();
 
 export async function preloadMovies(ctx, next) {
   let result = await loadMovies(ctx.params.category, ctx.params.page);
@@ -48,6 +48,13 @@ export async function preloadDetails(ctx, next) {
   });
 
   ctx.data.credits.crew = crew;
-  console.log(crew);
   next();
+}
+export async function preloadVideos(ctx, next) {
+  const category = ctx.params.category;
+  const id = ctx.params.id;
+  let videoList = await getVideoList(id, category);
+  ctx.data.videoList = videoList
+
+  next()
 }

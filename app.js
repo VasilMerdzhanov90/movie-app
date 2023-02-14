@@ -5,6 +5,7 @@ import {
   preloadDetails,
   preloadMovies,
   preloadSeries,
+  preloadVideos,
 } from "./src/middlewares/preloadData.js";
 import { categoryView } from "./src/views/category/categoryView.js";
 import { detailsView } from "./src/views/details/details.js";
@@ -26,7 +27,7 @@ page("/movies/:category/:page", preloadMovies, categoryView);
 page("/series", seriesView);
 page("/series/:category/:page", preloadSeries, categoryView);
 page("/search", searchView);
-page("/details/:category/:id", preloadDetails, detailsView);
+page("/details/:category/:id", preloadDetails, preloadVideos, detailsView);
 page("/login", () => console.log("login/register"));
 
 page();

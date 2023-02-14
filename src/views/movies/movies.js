@@ -39,7 +39,7 @@ export async function moviesView(ctx) {
       { upcoming: await loadMovies('upcoming', 1) },
       { playing: await loadMovies('playing', 1) },
       { trending: await loadMovies('trending', 1) },
-      { netflix: await loadMovies('netflix', 1) },
+      // { netflix: await loadMovies('netflix', 1) },
       { action: await loadMovies('action', 1) },
       { comedy: await loadMovies('comedy', 1) },
       { horror: await loadMovies('horror', 1) },

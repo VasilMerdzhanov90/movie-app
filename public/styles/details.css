@@ -5,16 +5,29 @@
 
 .details-container .top-content {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: min-content 80%;
+    align-items: center;
+    background-image: url('../acets/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
 }
 
-.details-container .top-content .img-wrapper {
+/* .details-container .top-content .img-wrapper {
     border-radius: 8px;
     overflow: hidden;
-    width: fit-content;
+    width: 100%
+} */
+
+.details-container .top-content .img-wrapper .poster {
+    margin: 10px;
+    border-radius: 8px;
 }
 
 .details-container .top-content .info-wrapper {
+    margin-left: 10px;
+    width: 85%;
     margin-top: 25px;
 }
 
@@ -27,6 +40,10 @@
 .details-container .top-content .overview {
     margin-top: 15px;
     padding: 15px;
+}
+
+.details-container .top-content .overview p {
+    white-space: pre-wrap;
 }
 
 .details-container .top-content .overview p,
@@ -45,17 +62,17 @@
 }
 
 .details-container .top-content .prod-companies {
+    width: 80%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .details-container .top-content .prod-companies img {
-    max-height: 80px;
+    max-height: 40px;
+    margin-right: 8px;
 }
 
 .details-container .top-content .prod-companies div {
-    margin: 25px auto;
+    margin: 5px auto;
     display: flex;
     flex-direction: column;
 }
@@ -64,10 +81,12 @@
     margin: 25px auto;
     position: relative;
 }
-.details-container .cast h3{
+
+.details-container .cast h3 {
     font-size: 2rem;
     text-align: center;
 }
+
 .details-container .cast .slider {
     display: flex;
     justify-content: start;
@@ -75,10 +94,12 @@
     overflow: hidden;
     scroll-behavior: smooth;
 }
-.details-container .cast .slider  p{
+
+.details-container .cast .slider p {
     margin: 0;
     font-size: 1rem;
 }
+
 .details-container .cast .left,
 .details-container .cast .right {
     cursor: pointer;
@@ -111,4 +132,7 @@
 .details-container .cast .actor-container .img-wrapper {
     border-radius: 20px;
     overflow: hidden;
+}
+.details-container .cast .actor-container .img-wrapper img{
+    max-width: 150px;
 }

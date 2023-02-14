@@ -85,8 +85,8 @@ export const isPendingHandler = (pending) => {
 
 
 export const categoryListGenerator = (section) => {
-  const movieCategory = Object.keys(movieRequestLinks).slice(0, 8);
-  const seriesCategory = Object.keys(seriesRequestLinks).slice(0, 4);
+  const movieCategory = Object.keys(movieRequestLinks).slice(0, 7);
+  const seriesCategory = Object.keys(seriesRequestLinks).slice(0, 5);
 
   if (section === "movies") {
     return html`${movieCategory.map(

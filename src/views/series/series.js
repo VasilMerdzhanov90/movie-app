@@ -36,7 +36,7 @@ export async function seriesView(ctx) {
     const { loadSeries } = requestData();
     const result = await Promise.all([
         { rated: await loadSeries('rated', 1) },
-        // { latest: await loadSeries('latest', 1) },
+        { netflix: await loadSeries('netflix', 1) },
         { aired: await loadSeries('aired', 1) },
         { popular: await loadSeries('popular', 1) },
         { todays: await loadSeries('todays', 1) },

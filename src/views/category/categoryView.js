@@ -59,7 +59,7 @@ export function categoryView(ctx) {
   let currentPage = ctx.params.page;
   const section = ctx.path.split("/")[1];
   const category = ctx.path.split("/")[2];
-
+console.log(ctx)
   const options = selectOptionsGenerator(ctx.data.total_pages);
 
   if (ctx.params.page <= ctx.data.total_pages && ctx.params.page > 0) {

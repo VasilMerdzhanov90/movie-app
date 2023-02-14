@@ -74,6 +74,13 @@ export function requestData() {
 
     return await request(url);
   };
+  const getVideoList = async (id, category) => {
+    const urlStructure = category === 'movies'
+      ? movieRequestLinks.videoSearch(id)
+      : seriesRequestLinks.videoSearch(id);
+    url = baseURL + urlStructure;
+    return await request(url);
+  }
 
   return {
     loadMovies,
@@ -82,6 +89,7 @@ export function requestData() {
     searchSeries,
     videoDataLoader,
     searchById,
-    getCredits
+    getCredits,
+    getVideoList
   };
 }
