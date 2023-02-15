@@ -55,5 +55,8 @@ export const seriesRequestLinks = {
 
 export const personRequestLinks = {
   personDetails: (id) => `/person/${id}?api_key=${API_KEY}&language=en-US`,
-  personCombinedCredits:(id)=>`/person/${id}/combined_credits?api_key=${API_KEY}&language=en-US`
+  personCombinedCredits: (id) =>
+    `/person/${id}/combined_credits?api_key=${API_KEY}&language=en-US`,
+  searchPerson: (query, page = 1) =>
+    `/search/person?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}`,
 };

@@ -84,8 +84,6 @@ export async function preloadPersonDetails(ctx, next) {
       ? b.release_date.localeCompare(a.release_date)
       : ""
   );
-
   ctx.person = { details, credits };
-  console.log(ctx.person);
   next();
 }

@@ -26,18 +26,20 @@
 }
 
 .search-container .select-type-search {
+
+    background: #171717;
     width: 200px;
 }
 
-.search-container option {
-    background: transparent;
-}
+/* .search-container option {
+    background: #171717;
+} */
 
 .search-container .search-results .search-summary {
     margin-top: 25px;
     font-size: 1.5rem;
 }
 
- .btn-pagination-container {
-   align-items: center;
+.btn-pagination-container {
+    align-items: center;
 }

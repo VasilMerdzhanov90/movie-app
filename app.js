@@ -8,6 +8,8 @@ import {
   preloadSeries,
   preloadVideos,
 } from "./src/middlewares/preloadData.js";
+
+
 import { categoryView } from "./src/views/category/categoryView.js";
 import { detailsView } from "./src/views/details/details.js";
 import { homeView } from "./src/views/home/home.js";

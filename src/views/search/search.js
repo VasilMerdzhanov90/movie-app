@@ -1,7 +1,7 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
 import { requestData } from "../../services/requestDataTMDB.js";
 
-const { searchMovie, searchSeries } = requestData();
+const { searchByKeyWord } = requestData();
 
 let context;
 let currentPage = 1;
@@ -101,13 +101,18 @@ async function handleSearch(string, type, page) {
     currentSearch = string;
     currentType = type;
   }
-  let result =
-    type === "movies"
-      ? await searchMovie(string, currentPage)
-      : await searchSeries(string, currentPage);
+
+  let result = await searchByKeyWord(string, currentPage, type);
   result.results = result.results.filter(
     (x) => x.backdrop_path !== null || x.poster_path !== null
   );
+  //   let result =
+  //   type === "movies"
+  //     ? await searchMovie(string, currentPage)
+  //     : await searchSeries(string, currentPage);
+  // result.results = result.results.filter(
+  //   (x) => x.backdrop_path !== null || x.poster_path !== null
+  // );
 
   totalPages = result.total_pages;
   totalResults = result.total_results;

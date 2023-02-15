@@ -34,18 +34,8 @@ async function request(fullURL) {
 export function requestData() {
   let url = "";
 
-  const searchMovie = async (query, page) => {
-    url = baseURL + movieRequestLinks.movieSearch(query, page);
-    return await request(url);
-  };
-
   const loadMovies = async (category, page) => {
     url = baseURL + movieRequestLinks[category](page);
-    return await request(url);
-  };
-
-  const searchSeries = async (query, page) => {
-    url = baseURL + seriesRequestLinks.seriesSearch(query, page);
     return await request(url);
   };
 
@@ -89,20 +79,42 @@ export function requestData() {
     const url = baseURL + personRequestLinks.personDetails(id);
     return await request(url);
   };
+
   const getPersonCredits = async (id) => {
     const url = baseURL + personRequestLinks.personCombinedCredits(id);
     return await request(url);
   };
+
+  const searchByKeyWord = async (query, page, type) => {
+    if (type === "movies") {
+      return await request(
+        baseURL + movieRequestLinks.movieSearch(query, page)
+      );
+    } else if (type === "series") {
+      return await request(
+        baseURL + seriesRequestLinks.seriesSearch(query, page)
+      );
+    }
+  };
+
+  // const searchSeries = async (query, page) => {
+  //   url = baseURL + seriesRequestLinks.seriesSearch(query, page);
+  //   return await request(url);
+  // };
+  // const searchMovie = async (query, page) => {
+  //   url = baseURL + movieRequestLinks.movieSearch(query, page);
+  //   return await request(url);
+  // };
+
   return {
     loadMovies,
-    searchMovie,
     loadSeries,
-    searchSeries,
     videoDataLoader,
     searchById,
     getCredits,
     getVideoList,
     getPersonDetails,
     getPersonCredits,
+    searchByKeyWord,
   };
 }
