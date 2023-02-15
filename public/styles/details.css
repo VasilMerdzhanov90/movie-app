@@ -54,10 +54,7 @@
     margin: 10px;
 }
 
-/* .details-container .top-content .crew p {
-    padding: 3px;
-    margin: 0;
-} */
+
 
 .details-container .top-content .prod-companies {
     width: 80%;
@@ -127,12 +124,9 @@
     padding: 16px 8px;
 }
 
-.details-container .cast .actor-container .img-wrapper {
-    border-radius: 20px;
-    overflow: hidden;
-}
 
 .details-container .cast .actor-container .img-wrapper img {
+    border-radius: 20px;
     max-width: 150px;
 }
 

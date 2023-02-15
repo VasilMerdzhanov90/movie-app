@@ -18,7 +18,7 @@ const movieDetailsTemplate = (data) => html`
       </div>
       <div class="info-wrapper">
         <section class="title">
-          <h2>${!data.result.title}</h2>
+          <h2>${data.result.title}</h2>
         </section>
         <section class="quick-info">
           <span>${data.result.release_date}</span>
@@ -45,8 +45,10 @@ const movieDetailsTemplate = (data) => html`
     ${data.videoList.results.length !== 0
       ? html`<section @click="${videoSlider}" class="media">
           <h2>Videos (${data.videoList.results.length})</h2>
-          <i class="fa-sharp fa-solid fa-arrow-left left prev"></i>
-          <i class="fa-sharp fa-solid fa-arrow-right right next"></i>
+          ${data.videoList.results.length > 1
+            ? html`<i class="fa-sharp fa-solid fa-arrow-left left prev"></i>
+                <i class="fa-sharp fa-solid fa-arrow-right right next"></i>`
+            : ""}
           <ul class="videos">
             <div class="slide-videos">
               <ul class="video-list">
@@ -77,14 +79,14 @@ const movieDetailsTemplate = (data) => html`
           (x) =>
             html`${x.profile_path &&
             html`<div class="actor-container">
-              <div class="img-wrapper">
+              <a href="/person/${x.id}" class="img-wrapper">
                 <img
                   src="http://image.tmdb.org/t/p/w200${x.profile_path}"
                   alt="poster"
                 />
-              </div>
-              <p class="name">${x.name}</p>
-              <span>as ${x.character}</span>
+                <p class="name">${x.name}</p>
+                <span>as ${x.character}</span>
+              </a>
             </div>`}`
         )}
       </div>
@@ -136,8 +138,10 @@ const seriesDetailsTemplate = (data) => html`
     ${data.videoList.results.length !== 0
       ? html`<section @click="${videoSlider}" class="media">
           <h2>Videos (${data.videoList.results.length})</h2>
-          <i class="fa-sharp fa-solid fa-arrow-left left prev"></i>
-          <i class="fa-sharp fa-solid fa-arrow-right right next"></i>
+          ${data.videoList.results.length > 1
+            ? html`<i class="fa-sharp fa-solid fa-arrow-left left prev"></i>
+                <i class="fa-sharp fa-solid fa-arrow-right right next"></i>`
+            : ""}
           <ul class="videos">
             <div class="slide-videos">
               <ul class="video-list">
@@ -169,13 +173,15 @@ const seriesDetailsTemplate = (data) => html`
             html`${x.profile_path &&
             html`<div class="actor-container">
               <div class="img-wrapper">
-                <img
+              <a href="/person/${x.id}" class="img-wrapper">
+                  <img
                   src="http://image.tmdb.org/t/p/w200${x.profile_path}"
                   alt="poster"
-                />
-              </div>
-              <p class="name">${x.name}</p>
-              <span>as ${x.roles[0].character}</span>
+                  />
+                </div>
+                <p class="name">${x.name}</p>
+                <span>as ${x.roles[0].character}</span>
+              </a>
             </div>`}`
         )}
       </div>
@@ -204,6 +210,7 @@ function slider(e) {
 function videoSlider(e) {
   const videoList = document.querySelector(".video-list");
   const clientWidth = videoList.children[0].clientWidth;
+
   if (e.target.classList.contains("next")) {
     videoList.scrollLeft += clientWidth;
   } else if (e.target.classList.contains("prev")) {

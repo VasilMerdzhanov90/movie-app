@@ -1,0 +1,52 @@
+.person-details {
+    margin: 35px auto;
+}
+
+.person-details .main-info {
+    background-image: url('../acets/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+}
+
+.person-details .main-info .profile-img {
+    margin: auto 20px;
+    max-width: 360px;
+}
+
+.person-details .main-info .profile-img img {
+    border-radius: 8px;
+}
+
+.person-details .credits h2 {
+    text-align: center;
+}
+
+.person-details .credits {
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.person-details .credits img {
+    padding: 6px;
+    max-width: 85px;
+    border-radius: 8px;
+}
+
+.person-details .credits .cast ul,
+.person-details .credits .crew ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* .person-details .credits .cast ul li a,
+.person-details .credits .crew ul li a {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+} */

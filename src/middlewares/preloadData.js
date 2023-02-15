@@ -1,6 +1,14 @@
 import { requestData } from "../services/requestDataTMDB.js";
 
-const { loadMovies, loadSeries, searchById, getCredits, getVideoList } = requestData();
+const {
+  loadMovies,
+  loadSeries,
+  searchById,
+  getCredits,
+  getVideoList,
+  getPersonDetails,
+  getPersonCredits,
+} = requestData();
 
 export async function preloadMovies(ctx, next) {
   let result = await loadMovies(ctx.params.category, ctx.params.page);
@@ -23,7 +31,7 @@ export async function preloadSeries(ctx, next) {
 }
 
 export async function preloadDetails(ctx, next) {
-  const category = ctx.path.split('/')[2];
+  const category = ctx.path.split("/")[2];
   const id = ctx.params.id;
   ctx.data = {};
   const crew = {
@@ -51,10 +59,33 @@ export async function preloadDetails(ctx, next) {
   next();
 }
 export async function preloadVideos(ctx, next) {
-  const category = ctx.path.split('/')[2];
+  const category = ctx.path.split("/")[2];
   const id = ctx.params.id;
   let videoList = await getVideoList(id, category);
-  ctx.data.videoList = videoList
+  ctx.data.videoList = videoList;
 
-  next()
+  next();
+}
+
+export async function preloadPersonDetails(ctx, next) {
+  const id = ctx.params.id;
+  let [details, credits] = await Promise.all([
+    await getPersonDetails(id),
+    await getPersonCredits(id),
+  ]);
+  console.log(credits);
+  credits.cast.map((x) =>
+    x.release_date !== undefined
+      ? (x.release_date = x.release_date.split("-")[0])
+      : null
+  );
+  credits.cast = credits.cast.sort((a, b) =>
+    a.release_date !== undefined && b.release_date !== undefined
+      ? b.release_date.localeCompare(a.release_date)
+      : ""
+  );
+
+  ctx.person = { details, credits };
+  console.log(ctx.person);
+  next();
 }

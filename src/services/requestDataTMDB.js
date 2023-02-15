@@ -1,5 +1,9 @@
 import { isPendingHandler } from "../utils/utils.js";
-import { movieRequestLinks, seriesRequestLinks } from "./tmdb/linksAndAPI.js";
+import {
+  movieRequestLinks,
+  personRequestLinks,
+  seriesRequestLinks,
+} from "./tmdb/linksAndAPI.js";
 
 const baseURL = "https://api.themoviedb.org/3";
 const trailerURL = "https://api.themoviedb.org/3/movie/";
@@ -81,6 +85,14 @@ export function requestData() {
     return await request(url);
   };
 
+  const getPersonDetails = async (id) => {
+    const url = baseURL + personRequestLinks.personDetails(id);
+    return await request(url);
+  };
+  const getPersonCredits = async (id) => {
+    const url = baseURL + personRequestLinks.personCombinedCredits(id);
+    return await request(url);
+  };
   return {
     loadMovies,
     searchMovie,
@@ -90,5 +102,7 @@ export function requestData() {
     searchById,
     getCredits,
     getVideoList,
+    getPersonDetails,
+    getPersonCredits,
   };
 }

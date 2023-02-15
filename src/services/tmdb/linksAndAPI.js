@@ -52,3 +52,8 @@ export const seriesRequestLinks = {
   seriesCredits: (id) =>
     `/tv/${id}/aggregate_credits?api_key=${API_KEY}&language=en-US`,
 };
+
+export const personRequestLinks = {
+  personDetails: (id) => `/person/${id}?api_key=${API_KEY}&language=en-US`,
+  personCombinedCredits:(id)=>`/person/${id}/combined_credits?api_key=${API_KEY}&language=en-US`
+};
