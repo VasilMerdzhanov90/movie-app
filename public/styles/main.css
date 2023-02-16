@@ -3,16 +3,17 @@
 @import url(./movies.css);
 @import url(./search.css);
 @import url(./details.css);
+@import url(./loginRegister.css);
 @import url(./person.css);
 @import url(./videoContainer.css);
-@import url('./mainMoviesSection.css');
+@import url('./sections.css');
 @import url('./loader.css');
 
 
 :root {
     --main-text-color: rgb(240, 240, 240);
     /* --hover-color: rgb(193, 193, 193); */
-    --hover-color:#af4058;
+    --hover-color: #af4058;
 }
 
 
@@ -33,4 +34,14 @@ body {
     margin-top: 4rem;
     font-size: 1.2rem;
     text-align: center;
+}
+
+#image-wrapper {
+    position: relative;
+}
+#selected{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
 }

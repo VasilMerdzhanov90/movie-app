@@ -7,7 +7,7 @@ import {
 const movieDetailsTemplate = (data) => html`
   <div class="details-container">
     <section class="top-content">
-      <div class="img-wrapper">
+      <div id="image-wrapper" class="img-wrapper">
         <img
           class="poster"
           src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
@@ -15,6 +15,7 @@ const movieDetailsTemplate = (data) => html`
             : data.result.poster_path}"
           alt="poster"
         />
+        <img id="selected" src="../../../public/acets/notSelected.png" />
       </div>
       <div class="info-wrapper">
         <section class="title">
@@ -84,6 +85,7 @@ const movieDetailsTemplate = (data) => html`
                   src="http://image.tmdb.org/t/p/w200${x.profile_path}"
                   alt="poster"
                 />
+                
                 <p class="name">${x.name}</p>
                 <span>as ${x.character}</span>
               </a>
@@ -96,14 +98,17 @@ const movieDetailsTemplate = (data) => html`
 const seriesDetailsTemplate = (data) => html`
   <div class="details-container">
     <section class="top-content">
-      <div class="img-wrapper">
+      <div id="image-wrapper" class="img-wrapper">
         <img
           class="poster"
           src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
             ? data.result.backdrop_path
             : data.result.poster_path}"
           alt="poster"
+          
         />
+        <img id="selected" src="../../../public/acets/notSelected.png" />
+
       </div>
       <div class="info-wrapper">
         <section class="title">

@@ -1,9 +1,25 @@
 .main-navigation {
-    margin-top: 2rem;
+    margin-top: 13px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.main-navigation .user-navigation {
+    width: 100%;
+}
+
+.main-navigation .user-navigation ul {
+    display: flex;
+    justify-content: end;
+    gap: 16px;
+}
+.main-navigation .user-navigation ul a{
+    padding: 9px 26px;
+    border: 1px solid var(--main-text-color);
+    border-radius: 4px;
+    color: var(--main-text-color);
 }
 
 .main-navigation .logo {
@@ -13,7 +29,7 @@
     gap: 10px;
 }
 
-.main-navigation .logo img{
+.main-navigation .logo img {
     margin: 0 auto;
     width: 60%;
 }

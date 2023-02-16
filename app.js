@@ -8,7 +8,7 @@ import {
   preloadSeries,
   preloadVideos,
 } from "./src/middlewares/preloadData.js";
-
+import { userNavigation } from "./src/middlewares/userNavigation.js";
 
 import { categoryView } from "./src/views/category/categoryView.js";
 import { detailsView } from "./src/views/details/details.js";
@@ -18,10 +18,13 @@ import { navigationComponent } from "./src/views/navigation/navigation.js";
 import { personDetailsView } from "./src/views/person/person.js";
 import { searchView } from "./src/views/search/search.js";
 import { seriesView } from "./src/views/series/series.js";
+import { loginView } from "./src/views/user/login.js";
+import { registerView } from "./src/views/user/register.js";
 
 //middlewares
 page(addRender);
 page(navigationComponent);
+page(userNavigation);
 page(loader);
 
 //links
@@ -33,6 +36,7 @@ page("/series/:category/:page", preloadSeries, categoryView);
 page("/search", searchView);
 page("/details/:category/:id", preloadDetails, preloadVideos, detailsView);
 page("/person/:id", preloadPersonDetails, personDetailsView);
-page("/login", () => console.log("login/register"));
+page("/login", loginView);
+page("/register", registerView);
 
 page();
