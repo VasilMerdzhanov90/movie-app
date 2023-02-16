@@ -1,5 +1,5 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { requestData } from "../../services/requestDataTMDB.js";
+import { requestData } from "../../services/tmdb/requestDataTMDB.js";
 
 import { categoryListGenerator, sliderPreview } from "../../utils/utils.js";
 

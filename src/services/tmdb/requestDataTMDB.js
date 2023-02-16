@@ -1,9 +1,9 @@
-import { isPendingHandler } from "../utils/utils.js";
+import { isPendingHandler } from "../../utils/utils.js";
 import {
   movieRequestLinks,
   personRequestLinks,
   seriesRequestLinks,
-} from "./tmdb/linksAndAPI.js";
+} from "./linksAndAPI.js";
 
 const baseURL = "https://api.themoviedb.org/3";
 const trailerURL = "https://api.themoviedb.org/3/movie/";

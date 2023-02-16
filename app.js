@@ -1,5 +1,6 @@
 import page from "./node_modules/page/page.mjs";
 import { addRender } from "./src/middlewares/addRender.js";
+import { noUserGuard, userGuard } from "./src/middlewares/guards.js";
 import { loader } from "./src/middlewares/loader.js";
 import {
   preloadDetails,
@@ -34,9 +35,15 @@ page("/movies/:category/:page", preloadMovies, categoryView);
 page("/series", seriesView);
 page("/series/:category/:page", preloadSeries, categoryView);
 page("/search", searchView);
-page("/details/:category/:id", preloadDetails, preloadVideos, detailsView);
-page("/person/:id", preloadPersonDetails, personDetailsView);
-page("/login", loginView);
-page("/register", registerView);
+page(
+  "/details/:category/:id",
+  noUserGuard,
+  preloadDetails,
+  preloadVideos,
+  detailsView
+);
+page("/person/:id", noUserGuard, preloadPersonDetails, personDetailsView);
+page("/login", userGuard, loginView);
+page("/register", userGuard, registerView);
 
 page();

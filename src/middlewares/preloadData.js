@@ -1,4 +1,4 @@
-import { requestData } from "../services/requestDataTMDB.js";
+import { requestData } from "../services/tmdb/requestDataTMDB.js";
 
 const {
   loadMovies,
@@ -73,7 +73,6 @@ export async function preloadPersonDetails(ctx, next) {
     await getPersonDetails(id),
     await getPersonCredits(id),
   ]);
-  console.log(credits);
   credits.cast.map((x) =>
     x.release_date !== undefined
       ? (x.release_date = x.release_date.split("-")[0])

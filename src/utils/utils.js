@@ -28,7 +28,16 @@ export const listGenerator = (genres) => {
     return "";
   }
 };
+export function hrefGenerator(element) {
+  let href = `/details/`;
 
+  if (element.media_type === "movie") {
+    href += "movies/";
+  } else if (element.media_type === "tv") {
+    href += "series/";
+  }
+  return (href += element.id);
+}
 // <<<<<<<<<<TEMPLATES>>>>>>>>>
 
 export const productionCompaniesGenerator = (companies) => {

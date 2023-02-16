@@ -1,5 +1,5 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { requestData } from "../../services/requestDataTMDB.js";
+import { requestData } from "../../services/tmdb/requestDataTMDB.js";
 
 const { searchByKeyWord } = requestData();
 

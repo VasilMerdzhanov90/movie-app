@@ -1,4 +1,5 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { hrefGenerator } from "../../utils/utils.js";
 
 let genderEnum = ["transgender", "female", "male"];
 
@@ -40,16 +41,7 @@ const template = (data) => html`
   </div>
 `;
 
-function hrefGenerator(element) {
-  let href = `/details/`;
 
-  if (element.media_type === "movie") {
-    href += "movies/";
-  } else if (element.media_type === "tv") {
-    href += "series/";
-  }
-  return (href += element.id);
-}
 
 const imgTemplate = (arr) => {
   arr = arr.filter((x) => x.poster_path !== null || x.backdrop_path !== null);
