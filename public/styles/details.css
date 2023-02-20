@@ -6,7 +6,7 @@
 .details-container .top-content {
     display: grid;
     grid-template-columns: min-content 80%;
-    align-items: center;
+    /* align-items: center; */
     background-image: url('../acets/background.jpg');
     background-position: center;
     background-repeat: no-repeat;

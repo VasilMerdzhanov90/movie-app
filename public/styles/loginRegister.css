@@ -7,8 +7,7 @@
     height: min-content;
 }
 
-.sign-user h1,
-p {
+.sign-user .hint {
     text-align: center;
 }
 
@@ -44,11 +43,13 @@ p {
     cursor: pointer;
     transition: all 220ms ease-in-out;
 }
-.sign-user .btn-user:hover{
+
+.sign-user .btn-user:hover {
     color: black;
     background-color: var(--main-text-color);
 
 }
-.sign-user a{
+
+.sign-user a {
     color: rgb(240, 90, 90);
 }

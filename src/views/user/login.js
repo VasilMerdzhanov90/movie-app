@@ -6,7 +6,7 @@ const { login } = userActions();
 
 const loginTemplate = (onSubmit) => html`
   <div class="sign-user">
-    <h1>LOGIN</h1>
+    <h1 class="type hint">LOGIN</h1>
     <form @submit="${onSubmit}">
       <label>
         <span>email:</span>
@@ -19,7 +19,7 @@ const loginTemplate = (onSubmit) => html`
       <div id="error"></div>
       <input class="btn-user" type="submit" value="LOGIN" />
     </form>
-    <p>NOT REGISTERED? <a href="/register">REGISTER HERE</a></p>
+    <p class="hint">NOT REGISTERED? <a href="/register">REGISTER HERE</a></p>
   </div>
 `;
 
