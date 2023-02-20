@@ -17,7 +17,7 @@ const notLoggedInTemplate = () => html`
 `;
 
 export function userNavigation(ctx, next) {
-  const user = getUser();
+  const {user} = getUser();
 
   if (user) {
     ctx.render(loggedInTemplate, document.getElementById("user-navigation"));

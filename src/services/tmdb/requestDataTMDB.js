@@ -8,12 +8,6 @@ import {
 const baseURL = "https://api.themoviedb.org/3";
 const trailerURL = "https://api.themoviedb.org/3/movie/";
 
-// const baseVideoURL = "https://www.youtube.com/embed/";
-
-//  const API_KEY = "ca699f41df4cdcc6f6807864d5581587";
-//  const urlMovieSearch = "https://api.themoviedb.org/3/movie/";
-//  const urlYouTube = "https://www.youtube.com/embed/";
-
 async function request(fullURL) {
   isPendingHandler(true);
   try {
@@ -96,15 +90,6 @@ export function requestData() {
       );
     }
   };
-
-  // const searchSeries = async (query, page) => {
-  //   url = baseURL + seriesRequestLinks.seriesSearch(query, page);
-  //   return await request(url);
-  // };
-  // const searchMovie = async (query, page) => {
-  //   url = baseURL + movieRequestLinks.movieSearch(query, page);
-  //   return await request(url);
-  // };
 
   return {
     loadMovies,

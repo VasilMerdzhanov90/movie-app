@@ -1,10 +1,7 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
+const template = () => html``;
 
-const template = () => html`
+export async function homeView(ctx) {
 
-`
-export function homeView(ctx) {
-   ctx.render(template)
+  ctx.render(template);
 }
-
-

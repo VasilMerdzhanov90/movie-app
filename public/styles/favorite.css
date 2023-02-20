@@ -1,0 +1,37 @@
+.fav-titles {
+    margin: 35px auto;
+    background-image: url('../acets/background-fav.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.fav-titles>h1,
+.fav-titles>h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.fav-titles>ul {
+    margin: 10px auto;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+}
+
+.fav-titles ul .fav-list img {
+    margin: 5px;
+    max-width: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.fav-titles ul .fav-over {
+    width: 80%;
+    margin: 0;
+}

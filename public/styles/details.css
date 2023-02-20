@@ -20,9 +20,26 @@
     margin-top: 25px;
 }
 
+.details-container .top-content .img-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .details-container .top-content .img-wrapper .poster {
     margin: 10px;
     border-radius: 8px;
+}
+
+.details-container .top-content .img-wrapper>button {
+   background-color: transparent;
+   color: var(--main-text-color);
+   font-size: 1.1rem;
+   text-transform: capitalize;
+   padding: 10px;
+   cursor: pointer;
+   border: 1px solid var(--main-text-color);
+   border-radius: 4px;
+   margin: 10px;
 }
 
 .details-container .top-content .info-wrapper h2 {
@@ -129,4 +146,3 @@
     border-radius: 20px;
     max-width: 150px;
 }
-

@@ -1,23 +1,10 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-import { doc, setDoc, db, Timestamp } from "../firebase/config.js";
 import {
   movieRequestLinks,
   seriesRequestLinks,
 } from "../services/tmdb/linksAndAPI.js";
 
-//util function to create document for user data
-export const createNewUserDocument = async (id, email, displayName) => {
-  try {
-    await setDoc(doc(db, "users", id), {
-      id,
-      displayName,
-      email,
-      createdAt: Timestamp.fromDate(new Date()),
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+
 
 export const listGenerator = (genres) => {
   let result = [];
@@ -38,6 +25,29 @@ export function hrefGenerator(element) {
   }
   return (href += element.id);
 }
+
+export function slider(e) {
+  const slideActors = document.querySelector(".slider");
+  if (e.target.tagName === "I") {
+    if (e.target.classList.contains("left")) {
+      slideActors.scrollLeft -= 205;
+    } else {
+      slideActors.scrollLeft += 205;
+    }
+  }
+}
+
+export function videoSlider(e) {
+  const videoList = document.querySelector(".video-list");
+  const clientWidth = videoList.children[0].clientWidth;
+
+  if (e.target.classList.contains("next")) {
+    videoList.scrollLeft += clientWidth;
+  } else if (e.target.classList.contains("prev")) {
+    videoList.scrollLeft -= clientWidth;
+  }
+}
+
 // <<<<<<<<<<TEMPLATES>>>>>>>>>
 
 export const productionCompaniesGenerator = (companies) => {

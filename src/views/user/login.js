@@ -1,8 +1,7 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { userActions } from "../../services/firebaseDB/users.js";
+import { onSubmitLogin } from "../../utils/handlers.js";
 import { OnSubmitHandler } from "../../utils/userData.js";
 
-const { login } = userActions();
 
 const loginTemplate = (onSubmit) => html`
   <div class="sign-user">
@@ -24,30 +23,7 @@ const loginTemplate = (onSubmit) => html`
 `;
 
 export function loginView(ctx) {
-  ctx.render(() => loginTemplate(OnSubmitHandler(ctx, onSubmit)));
+  ctx.render(() => loginTemplate(OnSubmitHandler(ctx, onSubmitLogin)));
 }
 
-async function onSubmit(ctx, data) {
-  const email = data.email.trim();
-  const password = data.password.trim();
 
-  if (email == "" || password == "") {
-    ctx.render(
-      () => html`<p>All fields must be filled!</p>`,
-      document.getElementById("error")
-    );
-  } else {
-    const submitBtn = document.getElementsByClassName("btn-user")[0];
-    submitBtn.disabled = true;
-    const newUser = await login({ email, password });
-    if (typeof newUser == "string") {
-      ctx.render(
-        () => html`<p>Incorrect email or password!</p>`,
-        document.getElementById("error")
-      );
-      submitBtn.disabled = false;
-    } else {
-      ctx.page.redirect("/movies");
-    }
-  }
-}

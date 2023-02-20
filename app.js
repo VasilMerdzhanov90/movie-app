@@ -13,12 +13,12 @@ import { userNavigation } from "./src/middlewares/userNavigation.js";
 
 import { categoryView } from "./src/views/category/categoryView.js";
 import { detailsView } from "./src/views/details/details.js";
+import { favoritesView } from "./src/views/favorites/favorites.js";
 import { homeView } from "./src/views/home/home.js";
-import { moviesView } from "./src/views/movies/movies.js";
+import { mainSeriesAndMoviesView } from "./src/views/mainSeriesAndMovies/mainSeriesAndMoviesView.js";
 import { navigationComponent } from "./src/views/navigation/navigation.js";
 import { personDetailsView } from "./src/views/person/person.js";
 import { searchView } from "./src/views/search/search.js";
-import { seriesView } from "./src/views/series/series.js";
 import { loginView } from "./src/views/user/login.js";
 import { registerView } from "./src/views/user/register.js";
 
@@ -30,9 +30,9 @@ page(loader);
 
 //links
 page("/", homeView);
-page("/movies", moviesView);
+page("/movies", mainSeriesAndMoviesView);
 page("/movies/:category/:page", preloadMovies, categoryView);
-page("/series", seriesView);
+page("/series", mainSeriesAndMoviesView);
 page("/series/:category/:page", preloadSeries, categoryView);
 page("/search", searchView);
 page(
@@ -45,5 +45,6 @@ page(
 page("/person/:id", noUserGuard, preloadPersonDetails, personDetailsView);
 page("/login", userGuard, loginView);
 page("/register", userGuard, registerView);
+page("/favorite", favoritesView);
 
 page();

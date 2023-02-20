@@ -1,15 +1,17 @@
 import { getUser } from "../utils/userData.js";
 
 export const userGuard = (ctx, next) => {
-  if (getUser()) {
+  const { user } = getUser();
+  if (user) {
     ctx.page.redirect("/");
-}
-next()
+  }
+  next();
 };
 
 export const noUserGuard = (ctx, next) => {
-  if (!getUser()) {
+  const { user } = getUser();
+  if (!user) {
     ctx.page.redirect("/login");
   }
-  next()
+  next();
 };

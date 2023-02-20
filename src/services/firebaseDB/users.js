@@ -5,7 +5,9 @@ import {
   updateProfile,
 } from "../../firebase/config.js";
 import { removeUser, setUser } from "../../utils/userData.js";
-import { createNewUserDocument } from "../../utils/utils.js";
+import { useCollection } from "./data.js";
+
+const { createNewUserDocument } = useCollection("users");
 
 export function userActions() {
   const login = async ({ email, password }) => {

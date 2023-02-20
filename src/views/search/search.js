@@ -106,13 +106,6 @@ async function handleSearch(string, type, page) {
   result.results = result.results.filter(
     (x) => x.backdrop_path !== null || x.poster_path !== null
   );
-  //   let result =
-  //   type === "movies"
-  //     ? await searchMovie(string, currentPage)
-  //     : await searchSeries(string, currentPage);
-  // result.results = result.results.filter(
-  //   (x) => x.backdrop_path !== null || x.poster_path !== null
-  // );
 
   totalPages = result.total_pages;
   totalResults = result.total_results;

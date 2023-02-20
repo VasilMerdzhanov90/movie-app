@@ -10,12 +10,8 @@ export const movieRequestLinks = {
     `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`, // <<<<<<<<<<<<<<<<<<<<<<<< MAIN PAGE!
   playing: (page) =>
     `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`, // <<<<<<<<<<<<<<<<<<<<<<<< MAIN PAGE!
-  // popular: (page) => `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`,
   trending: (page) =>
     `/trending/all/week?api_key=${API_KEY}&language=en-US&page=${page}`,
-  // netflix: (page) =>
-  //   `/discover/tv?api_key=${API_KEY}&with_networks=213&page=${page}`,
-  // top:(page) =>  `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   action: (page) =>
     `/discover/movie?api_key=${API_KEY}&with_genres=28&page=${page}`,
   comedy: (page) =>
@@ -24,7 +20,6 @@ export const movieRequestLinks = {
     `/discover/movie?api_key=${API_KEY}&with_genres=27&page=${page}`,
   romance: (page) =>
     `/discover/movie?api_key=${API_KEY}&with_genres=10749&page=${page}`,
-  // documentary: (page) => `/discover/movie?api_key=${API_KEY}&with_genres=99&page=${page}`,
   movieSearch: (query, page = 1) =>
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}`,
   videoSearch: (id) => `/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
@@ -36,7 +31,6 @@ export const movieRequestLinks = {
 export const seriesRequestLinks = {
   rated: (page) =>
     `/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
-  // latest: (page) => `/tv/latest?api_key=${API_KEY}&language=en-US&page=${page}`,
   netflix: (page) =>
     `/discover/tv?api_key=${API_KEY}&with_networks=213&page=${page}`,
   aired: (page) =>
