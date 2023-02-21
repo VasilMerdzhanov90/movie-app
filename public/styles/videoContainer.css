@@ -1,6 +1,12 @@
 .details-container .media {
-    max-width: fit-content;
+    margin: 20px auto;
+    max-width: 1130px;
     position: relative;
+}
+
+.details-container .media .videos .video-list #player {
+    width: 560px;
+    height: 300px;
 }
 
 .details-container .media .videos .slide-videos .video-list {
@@ -8,7 +14,7 @@
     overflow: hidden;
     padding: 0;
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .details-container .right,

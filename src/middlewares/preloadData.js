@@ -93,3 +93,19 @@ export async function preloadPersonDetails(ctx, next) {
   ctx.person = { details, credits };
   next();
 }
+
+export async function preloadHomeData(ctx, next) {
+  ctx.data = {};
+  const result = await Promise.all([
+    { movies: await loadMovies("playing", 1) },
+    { series: await loadSeries("popular", 1) },
+  ]);
+  ctx.data.moviePosters = result[0].movies.results.map(
+    (x) => x.poster_path || x.backdrop_path
+  );
+  ctx.data.seriesPosters = result[1].series.results.map(
+    (x) => x.poster_path || x.backdrop_path
+  );
+  
+  next();
+}

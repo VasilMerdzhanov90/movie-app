@@ -4,8 +4,6 @@ import {
   seriesRequestLinks,
 } from "../services/tmdb/linksAndAPI.js";
 
-
-
 export const listGenerator = (genres) => {
   let result = [];
   if (genres.length != 0) {
@@ -40,11 +38,10 @@ export function slider(e) {
 export function videoSlider(e) {
   const videoList = document.querySelector(".video-list");
   const clientWidth = videoList.children[0].clientWidth;
-
   if (e.target.classList.contains("next")) {
-    videoList.scrollLeft += clientWidth;
+    videoList.scrollLeft += clientWidth * 2 + 10;
   } else if (e.target.classList.contains("prev")) {
-    videoList.scrollLeft -= clientWidth;
+    videoList.scrollLeft -= clientWidth * 2 + 10;
   }
 }
 

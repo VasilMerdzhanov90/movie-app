@@ -1,0 +1,14 @@
+.auto-slider {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    transition: scroll 3000ms ease-in-out;
+}
+
+.home section {
+    margin: 35px;
+}
+
+.home section h2 {
+    text-align: center;
+}

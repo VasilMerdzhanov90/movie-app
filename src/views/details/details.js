@@ -89,12 +89,12 @@ const template = (data, favorites, handleFavoritesChoice) => html`
                   (x) => html`
                     <li>
                       <iframe
+                      id="player"
+
                         title="${data.result.title ||
                         data.result.name ||
                         data.result.original_title}"
                         frameborder="0"
-                        width="780"
-                        height="421"
                         src="http://www.youtube.com/embed/${x.key}"
                       ></iframe>
                     </li>

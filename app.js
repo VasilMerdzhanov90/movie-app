@@ -4,6 +4,7 @@ import { noUserGuard, userGuard } from "./src/middlewares/guards.js";
 import { loader } from "./src/middlewares/loader.js";
 import {
   preloadDetails,
+  preloadHomeData,
   preloadMovies,
   preloadPersonDetails,
   preloadSeries,
@@ -29,7 +30,7 @@ page(userNavigation);
 page(loader);
 
 //links
-page("/", homeView);
+page("/", preloadHomeData, homeView);
 page("/movies", mainSeriesAndMoviesView);
 page("/movies/:category/:page", preloadMovies, categoryView);
 page("/series", mainSeriesAndMoviesView);
