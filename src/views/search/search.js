@@ -17,6 +17,7 @@ const template = (onSearchInputHandler) => html`
       <select id="select" name="type" class="select-type-search">
         <option value="movies" label="movies"></option>
         <option value="series" label="series"></option>
+        <option value="person" label="person"></option>
       </select>
       <input type="submit" value="search" />
     </form>
@@ -36,11 +37,15 @@ const resultTemplate = (data) => html`
     <ul>
       ${data.results.map(
         (x) => html` <li>
-          <a href="/details/${currentType}/${x.id}">
+          <a
+            href="${currentType == "person"
+              ? `/${currentType}/${x.id}`
+              : `/details/${currentType}/${x.id}`}"
+          >
             <img
-              src="http://image.tmdb.org/t/p/w300${!x.poster_path
-                ? x.backdrop_path
-                : x.poster_path}"
+              src="http://image.tmdb.org/t/p/w300${x.poster_path ||
+              x.backdrop_path ||
+              x.profile_path}"
               alt="poster"
             />
             <p class="movie-title">${x.name ? x.name : x.title}</p>
@@ -104,7 +109,10 @@ async function handleSearch(string, type, page) {
 
   let result = await searchByKeyWord(string, currentPage, type);
   result.results = result.results.filter(
-    (x) => x.backdrop_path !== null || x.poster_path !== null
+    (x) =>
+      x.profile_path !== null &&
+      x.backdrop_path !== null &&
+      x.poster_path !== null
   );
 
   totalPages = result.total_pages;

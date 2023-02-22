@@ -88,6 +88,10 @@ export function requestData() {
       return await request(
         baseURL + seriesRequestLinks.seriesSearch(query, page)
       );
+    } else if (type === "person") {
+      return await request(
+        baseURL + personRequestLinks.searchPerson(query, page)
+      );
     }
   };
 

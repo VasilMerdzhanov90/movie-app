@@ -106,6 +106,7 @@ export async function preloadHomeData(ctx, next) {
   ctx.data.seriesPosters = result[1].series.results.map(
     (x) => x.poster_path || x.backdrop_path
   );
-  
+  ctx.data.moviePosters.length = 6;
+  ctx.data.seriesPosters.length = 6;
   next();
 }

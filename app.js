@@ -35,7 +35,7 @@ page("/movies", mainSeriesAndMoviesView);
 page("/movies/:category/:page", preloadMovies, categoryView);
 page("/series", mainSeriesAndMoviesView);
 page("/series/:category/:page", preloadSeries, categoryView);
-page("/search", searchView);
+page("/search", noUserGuard, searchView);
 page(
   "/details/:category/:id",
   noUserGuard,
