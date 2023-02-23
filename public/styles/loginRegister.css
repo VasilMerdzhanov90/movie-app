@@ -53,3 +53,16 @@
 .sign-user a {
     color: rgb(240, 90, 90);
 }
+@media (min-width:319px) and (max-width: 551px) {
+    .sign-user {
+        padding: 5px;
+        width: 95%;
+        height: min-content;
+      }
+      .sign-user h1 {
+        font-size: 2rem;
+      }
+      .sign-user .hint {
+        font-size: 0.9rem;
+      }
+}

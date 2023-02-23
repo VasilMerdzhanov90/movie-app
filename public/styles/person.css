@@ -44,9 +44,21 @@
     flex-wrap: wrap;
 }
 
-/* .person-details .credits .cast ul li a,
-.person-details .credits .crew ul li a {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-} */
+
+@media (min-width:319px) and (max-width: 769px) {
+    .person-details {
+        margin: 15px auto;
+      }
+      .person-details .main-info {
+        gap: 8px;
+        flex-direction: column;
+        padding: 8px;
+      }
+      .person-details .main-info .profile-img {
+        margin: auto 5px;
+        max-width: 240px;
+      }
+      .person-details .main-info .profile-img img {
+        max-width: 240px;
+      }
+}

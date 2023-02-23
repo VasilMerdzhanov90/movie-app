@@ -106,3 +106,32 @@
     border: 1px solid white;
 }
 
+
+@media (min-width:319px) and (max-width: 769px) {
+
+    .movies-container .categories-list {
+        padding: 0;
+        gap: 10px;
+    }
+
+    .categories-list .category-type a {
+        font-size: 1.3rem;
+    }
+
+    .category-container .slider .movie-container img {
+        max-height: 200px;
+    }
+
+    .category-container .slider .movie-container img:hover {
+        max-height: 200px;
+    }
+
+    .categories-list .category-type {
+        padding: 3px;
+    }
+
+    .category-container h3 {
+        font-size: 2rem;
+    }
+
+}

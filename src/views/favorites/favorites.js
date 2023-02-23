@@ -5,15 +5,19 @@ const template = (favorite) => html`
   <div class="fav-titles">
     <h1>FAVORITE TITLES</h1>
     ${favorite.length > 0
-      ? html`<ul>
+      ? html`<ul class="favorites">
           ${favorite.map(
             (x) => html`
               <li class="fav-list">
-                <a href="/details/${x.type}/${x.id}">
-                  <img src="http://image.tmdb.org/t/p/w300${x.photoUrl}" />
-                  <p class="fav-title">${x.name.toUpperCase()}</p>
+                <a class="fav-href" href="/details/${x.type}/${x.id}">
+                  <img
+                    class="fav-img"
+                    src="http://image.tmdb.org/t/p/w300${x.photoUrl}"
+                  />
+                  <p class="fav-title">
+                    ${x.name}
+                  </p>
                 </a>
-                <p class="fav-over">${x.overview}</p>
               </li>
             `
           )}

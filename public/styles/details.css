@@ -31,15 +31,15 @@
 }
 
 .details-container .top-content .img-wrapper>button {
-   background-color: transparent;
-   color: var(--main-text-color);
-   font-size: 1.1rem;
-   text-transform: capitalize;
-   padding: 10px;
-   cursor: pointer;
-   border: 1px solid var(--main-text-color);
-   border-radius: 4px;
-   margin: 10px;
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid var(--main-text-color);
+    border-radius: 4px;
+    margin: 10px;
 }
 
 .details-container .top-content .info-wrapper h2 {
@@ -70,7 +70,6 @@
 .details-container .top-content .crew {
     margin: 10px;
 }
-
 
 
 .details-container .top-content .prod-companies {
@@ -141,8 +140,51 @@
     padding: 16px 8px;
 }
 
-
 .details-container .cast .actor-container .img-wrapper img {
     border-radius: 20px;
     max-width: 150px;
+}
+
+@media (min-width:319px) and (max-width: 600px) {
+    .details-container {
+        margin: 10px auto;
+        padding: 0;
+    }
+
+    .details-container .top-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-container .top-content .img-wrapper .poster {
+        margin: 10px;
+        border-radius: 8px;
+        max-width: 280px;
+    }
+
+    .details-container .top-content .info-wrapper h2 {
+        font-size: 1.6rem;
+    }
+
+    .details-container .top-content .overview {
+        margin-top: 15px;
+        padding: 0px;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .details-container .top-content .prod-companies img {
+        max-height: 22px;
+        margin-right: 8px;
+    }
+
+    .details-container .cast .actor-container .img-wrapper img {
+        border-radius: 20px;
+        max-width: 130px;
+    }
+
 }

@@ -26,3 +26,16 @@
 .details-container .left:hover {
     padding: 20px 10px;
 }
+
+@media (min-width:319px) and (max-width: 640px) {
+
+    .details-container .right,
+    .details-container .left {
+        padding: 10px 5px;
+    }
+
+    .details-container .right:hover,
+    .details-container .left:hover {
+        padding: 10px 5px;
+    }
+}

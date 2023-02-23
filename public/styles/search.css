@@ -43,3 +43,16 @@
 .btn-pagination-container {
     align-items: center;
 }
+
+@media (min-width:319px) and (max-width: 769px) {
+    .search-container form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+      }
+    .search-container form input,
+    .search-container form select {
+        min-width: 250px;
+    }
+}

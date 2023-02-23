@@ -14,24 +14,60 @@
     margin-bottom: 35px;
 }
 
-.fav-titles>ul {
+.fav-titles .favorites {
     margin: 10px auto;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: 25px;
-    grid-template-columns: repeat(2, 1fr);
     width: 90%;
 }
 
-.fav-titles ul .fav-list img {
+.fav-title .favorites .fav-list {
+    max-width: 280px;
+    object-fit: contain;
+}
+
+.fav-titles .favorites .fav-list .fav-img {
     margin: 5px;
-    max-width: 300px;
-    object-fit: cover;
     border-radius: 8px;
     overflow: hidden;
     margin: 0;
 }
 
-.fav-titles ul .fav-over {
+.fav-titles .favorites .fav-list .fav-title {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    max-width: 280px;
+    text-align: end;
+}
+
+.fav-titles .favorites .fav-over {
     width: 80%;
     margin: 0;
+}
+
+@media (min-width:319px) and (max-width: 769px) {
+    .fav-titles {
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    .fav-titles .favorites {
+        margin: 5px auto;
+        padding: 0;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .fav-titles .fav-list {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .fav-titles .favorites .fav-list .fav-img,
+    .fav-titles .favorites .fav-list .fav-title {
+        max-width: 220px;
+    }
 }
