@@ -7,7 +7,7 @@ const template = () => html`
       </ul>
     </nav>
     <div class="logo">
-      <img src="../../../public/acets/logo.jpg" alt="logo" />
+      <img src="../../../acets/logo.jpg" alt="logo" />
     </div>
     <ul class="links">
       <li class="link"><a class="link-href" href="/movies">Movies</a></li>
