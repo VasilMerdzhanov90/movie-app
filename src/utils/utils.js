@@ -53,7 +53,7 @@ export const imgTemplate = (arr) => {
       (x) => html`<li class="result-item">
         <a href="${hrefGenerator(x)}">
           <img
-            src="http://image.tmdb.org/t/p/w200${!x.poster_path
+            src="https://image.tmdb.org/t/p/w200${!x.poster_path
               ? x.backdrop_path
               : x.poster_path}"
           />
@@ -77,7 +77,7 @@ export const productionCompaniesGenerator = (companies) => {
         return html`
           <div class="company-container">
             <div class="img-wrapper">
-              <img src="http://image.tmdb.org/t/p/w200${x.logo_path}" />
+              <img src="https://image.tmdb.org/t/p/w200${x.logo_path}" />
             </div>
             <!-- <p>${x.name}</p> -->
           </div>

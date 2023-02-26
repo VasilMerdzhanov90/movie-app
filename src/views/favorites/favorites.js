@@ -12,7 +12,7 @@ const template = (favorite) => html`
                 <a class="fav-href" href="/details/${x.type}/${x.id}">
                   <img
                     class="fav-img"
-                    src="http://image.tmdb.org/t/p/w300${x.photoUrl}"
+                    src="https://image.tmdb.org/t/p/w300${x.photoUrl}"
                   />
                   <div class="fav-text-container">
                     <p class="fav-title">${x.name}</p>

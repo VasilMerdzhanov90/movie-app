@@ -26,7 +26,7 @@ const template = (data) => html`
         <h2>Explore movies</h2>
         <div class="auto-slider">
           ${data.moviePosters.map(
-            (x) => html` <img src="http://image.tmdb.org/t/p/w154${x}" /> `
+            (x) => html` <img src="https://image.tmdb.org/t/p/w154${x}" /> `
           )}
         </div>
       </section>
@@ -34,7 +34,7 @@ const template = (data) => html`
         <h2>Explore series</h2>
         <div class="auto-slider">
           ${data.seriesPosters.map(
-            (x) => html` <img src="http://image.tmdb.org/t/p/w154${x}" /> `
+            (x) => html` <img src="https://image.tmdb.org/t/p/w154${x}" /> `
           )}
         </div>
       </section>

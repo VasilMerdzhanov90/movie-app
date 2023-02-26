@@ -13,7 +13,7 @@ const template = (data, favorites, handleFavoritesChoice) => html`
       <div id="image-wrapper" class="img-wrapper">
         <img
           class="poster"
-          src="http://image.tmdb.org/t/p/w300${!data.result.poster_path
+          src="https://image.tmdb.org/t/p/w300${!data.result.poster_path
             ? data.result.backdrop_path
             : data.result.poster_path}"
           alt="poster"
@@ -112,7 +112,7 @@ const template = (data, favorites, handleFavoritesChoice) => html`
             html`<div class="actor-container">
               <a href="/person/${x.id}" class="img-wrapper">
                 <img
-                  src="http://image.tmdb.org/t/p/w200${x.profile_path}"
+                  src="https://image.tmdb.org/t/p/w200${x.profile_path}"
                   alt="poster"
                 />
 

@@ -4,3 +4,6 @@ https://www.youtube.com/watch?v=7HPsdVQhpRw
 hashing password
 https://masteringjs.io/tutorials/node/bcrypt
 
+{
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+}

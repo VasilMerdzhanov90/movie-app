@@ -23,7 +23,7 @@ const template = (
         (x) => html` <li>
           <a href="/details/${section}/${x.id}">
             <img
-              src="http://image.tmdb.org/t/p/w300${!x.poster_path
+              src="https://image.tmdb.org/t/p/w300${!x.poster_path
                 ? x.backdrop_path
                 : x.poster_path}"
               alt="poster"

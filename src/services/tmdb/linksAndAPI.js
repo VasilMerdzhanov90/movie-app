@@ -1,4 +1,4 @@
-// export const imageUrl = "http://image.tmdb.org/t/p/w300";
+// export const imageUrl = "https://image.tmdb.org/t/p/w300";
 const baseVideoURL = "https://www.youtube.com/embed/";
 const API_KEY = "ca699f41df4cdcc6f6807864d5581587";
 

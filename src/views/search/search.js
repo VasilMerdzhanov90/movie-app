@@ -43,7 +43,7 @@ const resultTemplate = (data) => html`
               : `/details/${currentType}/${x.id}`}"
           >
             <img
-              src="http://image.tmdb.org/t/p/w300${x.poster_path ||
+              src="https://image.tmdb.org/t/p/w300${x.poster_path ||
               x.backdrop_path ||
               x.profile_path}"
               alt="poster"

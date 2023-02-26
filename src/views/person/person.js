@@ -7,7 +7,7 @@ const template = (data, onListLoadHandler) => html`
   <div class="person-details">
     <section class="main-info">
       <div class="profile-img">
-        <img src="http://image.tmdb.org/t/p/w300${data.details.profile_path}" />
+        <img src="https://image.tmdb.org/t/p/w300${data.details.profile_path}" />
       </div>
       <div class="details">
         <h2>${data.details.name}</h2>
