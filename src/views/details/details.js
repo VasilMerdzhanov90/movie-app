@@ -82,23 +82,17 @@ const template = (data, favorites, handleFavoritesChoice) => html`
         ? html`<div class="videos">
             <iframe
               id="player"
-              frameborder="0"
-              allowfullscreen="allowfullscreen"
-              mozallowfullscreen="mozallowfullscreen"
-              msallowfullscreen="msallowfullscreen"
-              oallowfullscreen="oallowfullscreen"
-              webkitallowfullscreen="webkitallowfullscreen"
-              src="http://www.youtube.com/embed/${data.videoList.results[0]
+              frameborder="1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              src="https://www.youtube.com/embed/${data.videoList.results[0]
                 .key}"
             ></iframe>
             <ul class="key-list">
               ${data.videoList.results.map(
                 (x) =>
                   html`<li id="key" data-key="${x.key}">
-                    <img
-                      class="play-btn"
-                      src="../../../acets/play-btn.png"
-                    />
+                    <img class="play-btn" src="../../../acets/play-btn.png" />
                     ${x.name}
                   </li>`
               )}
