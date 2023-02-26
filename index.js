@@ -1,8 +1,8 @@
-import page from "./node_modules/page/page.mjs";
+import page from "../node_modules/page/page.mjs";
 
-import { addRender } from "./src/middlewares/addRender.js";
-import { noUserGuard, userGuard } from "./src/middlewares/guards.js";
-import { loader } from "./src/middlewares/loader.js";
+import { addRender } from "../src/middlewares/addRender.js";
+import { noUserGuard, userGuard } from "../src/middlewares/guards.js";
+import { loader } from "../src/middlewares/loader.js";
 import {
   preloadDetails,
   preloadHomeData,
@@ -10,19 +10,19 @@ import {
   preloadPersonDetails,
   preloadSeries,
   preloadVideos,
-} from "./src/middlewares/preloadData.js";
-import { userNavigation } from "./src/middlewares/userNavigation.js";
+} from "../src/middlewares/preloadData.js";
+import { userNavigation } from "../src/middlewares/userNavigation.js";
 
-import { categoryView } from "./src/views/category/categoryView.js";
-import { detailsView } from "./src/views/details/details.js";
-import { favoritesView } from "./src/views/favorites/favorites.js";
-import { homeView } from "./src/views/home/home.js";
-import { mainSeriesAndMoviesView } from "./src/views/mainSeriesAndMovies/mainSeriesAndMoviesView.js";
-import { navigationComponent } from "./src/views/navigation/navigation.js";
-import { personDetailsView } from "./src/views/person/person.js";
-import { searchView } from "./src/views/search/search.js";
-import { loginView } from "./src/views/user/login.js";
-import { registerView } from "./src/views/user/register.js";
+import { categoryView } from "../src/views/category/categoryView.js";
+import { detailsView } from "../src/views/details/details.js";
+import { favoritesView } from "../src/views/favorites/favorites.js";
+import { homeView } from "../src/views/home/home.js";
+import { mainSeriesAndMoviesView } from "../src/views/mainSeriesAndMovies/mainSeriesAndMoviesView.js";
+import { navigationComponent } from "../src/views/navigation/navigation.js";
+import { personDetailsView } from "../src/views/person/person.js";
+import { searchView } from "../src/views/search/search.js";
+import { loginView } from "../src/views/user/login.js";
+import { registerView } from "../src/views/user/register.js";
 
 //middlewares
 page(addRender);
