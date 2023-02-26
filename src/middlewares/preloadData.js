@@ -63,14 +63,7 @@ export async function preloadVideos(ctx, next) {
   const id = ctx.params.id;
   let videoList = await getVideoList(id, category);
 
-  videoList.results = videoList.results.filter(
-    (x) =>
-      x.name.toLowerCase().includes("trailer") ||
-      x.name.toLowerCase().includes("official") ||
-      x.name.toLowerCase().includes("teaser")
-  );
   ctx.data.videoList = videoList;
-  // console.log(typeof ctx.data.videoList.results);
   next();
 }
 

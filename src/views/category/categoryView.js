@@ -72,7 +72,7 @@ export function categoryView(ctx) {
         redirectToPage
       )
     );
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
   } else {
     ctx.render(emptyTemplate);
   }

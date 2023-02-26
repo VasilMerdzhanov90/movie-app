@@ -16,7 +16,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-console.log(updateDoc)
+
 const firebaseConfig = {
   apiKey: "AIzaSyCAECgvtSURnmGmqgorc9ynH63niNoH0Z0",
   authDomain: "movie-app-ba9f8.firebaseapp.com",

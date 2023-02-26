@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/VasilMerdzhanov90/movie-app#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "firebase": "^9.17.1",
     "firestore": "^1.1.6",
     "lit-html": "^2.6.1",

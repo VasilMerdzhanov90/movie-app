@@ -120,4 +120,5 @@ async function handleSearch(string, type, page) {
   currentSearch = string;
   currentType = type;
   context.render(() => resultTemplate(result));
+  window.scrollTo(0, 0);
 }

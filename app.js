@@ -49,3 +49,4 @@ page("/register", userGuard, registerView);
 page("/favorite", favoritesView);
 
 page();
+

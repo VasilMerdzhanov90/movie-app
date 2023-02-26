@@ -1,9 +1,9 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { hrefGenerator } from "../../utils/utils.js";
+import { imgTemplate } from "../../utils/utils.js";
 
-let genderEnum = ["transgender", "female", "male"];
+let genderEnum = ["Transgender", "Female", "Male"];
 
-const template = (data) => html`
+const template = (data, onListLoadHandler) => html`
   <div class="person-details">
     <section class="main-info">
       <div class="profile-img">
@@ -22,46 +22,25 @@ const template = (data) => html`
         <p>${data.details.biography}</p>
       </div>
     </section>
-    <section class="credits">
-      <div class="cast">
-        <h2>Acting:</h2>
-        <ul>
-          ${imgTemplate(data.credits.cast)}
-        </ul>
-      </div>
-      <div class="crew">
-        ${data.credits.crew.length > 1
-          ? html`<h2>Directing, producing and other:</h2>
-              <ul>
-                ${imgTemplate(data.credits.crew)}
-              </ul>`
-          : ""}
-      </div>
+    <section @click="${onListLoadHandler}" class="credits">
+      <button class="section-btn">Acting (${data.credits.cast.length})</button>
+      <button class="section-btn">Other (${data.credits.crew.length})</button>
+      <ul class="results"></ul>
     </section>
   </div>
 `;
 
-
-
-const imgTemplate = (arr) => {
-  arr = arr.filter((x) => x.poster_path !== null || x.backdrop_path !== null);
-  if (arr.length !== 0) {
-    return arr.map(
-      (x) => html`<li>
-        <a href="${hrefGenerator(x)}">
-          <img
-            src="http://image.tmdb.org/t/p/w200${!x.poster_path
-              ? x.backdrop_path
-              : x.poster_path}"
-          />
-        </a>
-      </li>`
-    );
-  } else {
-    return "";
-  }
-};
-
 export function personDetailsView(ctx) {
-  ctx.render(() => template(ctx.person));
+  ctx.render(() => template(ctx.person, onListLoadHandler));
+  window.scrollTo(0, 0);
+  function onListLoadHandler(e) {
+    const resultParent = document.querySelector(".results");
+    if (e.target.textContent.includes("Acting")) {
+      ctx.render(() => imgTemplate(ctx.person.credits.cast), resultParent);
+      // window.scrollBy(0, window.innerHeight - window.innerHeight / 2);
+    } else if (e.target.textContent.includes("Other")) {
+      ctx.render(() => imgTemplate(ctx.person.credits.crew), resultParent);
+    }
+    window.scrollBy(0, window.innerHeight - window.innerHeight / 2);
+  }
 }

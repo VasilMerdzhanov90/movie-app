@@ -45,7 +45,6 @@ const templateRow = (videoTitle, type) => html`
 
 export async function mainSeriesAndMoviesView(ctx) {
   const type = ctx.pathname.split("/")[1];
-  console.log(type);
 
   const { favorites } = getUser();
   fav = favorites;
@@ -72,4 +71,5 @@ export async function mainSeriesAndMoviesView(ctx) {
   }
 
   sliderPreview(document.querySelectorAll("div .category-container"));
+
 }

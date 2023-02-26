@@ -1,10 +1,9 @@
 // export const imageUrl = "http://image.tmdb.org/t/p/w300";
 const baseVideoURL = "https://www.youtube.com/embed/";
-
 const API_KEY = "ca699f41df4cdcc6f6807864d5581587";
+
 // export const urlMovieSearch = "https://api.themoviedb.org/3/movie/";
 // export const urlYouTube = "https://www.youtube.com/embed/";
-
 export const movieRequestLinks = {
   upcoming: (page) =>
     `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`, // <<<<<<<<<<<<<<<<<<<<<<<< MAIN PAGE!

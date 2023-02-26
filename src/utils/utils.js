@@ -34,19 +34,41 @@ export function slider(e) {
     }
   }
 }
-
-export function videoSlider(e) {
-  const videoList = document.querySelector(".video-list");
-  const clientWidth = videoList.children[0].clientWidth;
-  if (e.target.classList.contains("next")) {
-    videoList.scrollLeft += clientWidth * 2 + 10;
-  } else if (e.target.classList.contains("prev")) {
-    videoList.scrollLeft -= clientWidth * 2 + 10;
-  }
-}
+// //MUST DELETE//
+// export function videoSlider(e) {
+//   const videoList = document.querySelector(".video-list");
+//   const clientWidth = videoList.children[0].clientWidth;
+//   if (e.target.classList.contains("next")) {
+//     videoList.scrollLeft += clientWidth * 2 + 10;
+//   } else if (e.target.classList.contains("prev")) {
+//     videoList.scrollLeft -= clientWidth * 2 + 10;
+//   }
+// }
 
 // <<<<<<<<<<TEMPLATES>>>>>>>>>
-
+export const imgTemplate = (arr) => {
+  arr = arr.filter((x) => x.poster_path !== null || x.backdrop_path !== null);
+  if (arr.length !== 0) {
+    return arr.map(
+      (x) => html`<li class="result-item">
+        <a href="${hrefGenerator(x)}">
+          <img
+            src="http://image.tmdb.org/t/p/w200${!x.poster_path
+              ? x.backdrop_path
+              : x.poster_path}"
+          />
+        </a>
+        <div>
+          <p>${x.original_title || x.title} / ${x.release_date}</p>
+          <p>Role: ${x.character || x.department}</p>
+          <article>${x.overview}</article>
+        </div>
+      </li>`
+    );
+  } else {
+    return "";
+  }
+};
 export const productionCompaniesGenerator = (companies) => {
   let result = "";
   if (companies.length != 0) {

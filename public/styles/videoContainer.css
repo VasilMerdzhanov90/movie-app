@@ -1,41 +1,89 @@
-.details-container .media {
-    margin: 20px auto;
-    max-width: 1130px;
-    position: relative;
-}
-
-.details-container .media .videos .video-list #player {
-    width: 560px;
-    height: 300px;
-}
-
-.details-container .media .videos .slide-videos .video-list {
-    scroll-behavior: smooth;
-    overflow: hidden;
-    padding: 0;
+.details-container .videos {
     display: flex;
-    gap: 10px;
+    margin: 25px auto;
+    width: 100%;
+    height: 340px;
 }
 
-.details-container .right,
-.details-container .left {
-    padding: 16px 8px;
+.details-container .videos #player {
+    margin: 15px auto;
+    max-width: 640px;
+    height: 340px;
 }
 
-.details-container .right:hover,
-.details-container .left:hover {
-    padding: 20px 10px;
+.details-container .videos .key-list .play-btn {
+    width: 25px;
+}
+
+.details-container .videos .key-list {
+    margin: 15px auto;
+    width: 640px;
+    max-height: 340px;
+    overflow-x: scroll;
+}
+
+.details-container .videos .key-list #key {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.details-container .videos .key-list #key:hover {
+    color: var(--hover-color);
 }
 
 @media (min-width:319px) and (max-width: 640px) {
 
-    .details-container .right,
-    .details-container .left {
-        padding: 10px 5px;
+    .details-container .videos {
+        flex-wrap: wrap;
+        height: fit-content;
     }
 
-    .details-container .right:hover,
-    .details-container .left:hover {
-        padding: 10px 5px;
+    .details-container .videos #player {
+        width: 100%;
+        height: 300px;
+    }
+
+    .details-container .videos .key-list {
+        min-height: 150px;
+        max-height: 240px;
+    }
+}
+
+@media (min-width:641px) and (max-width: 1280px) {
+
+    .details-container .videos #player {
+        margin: 15px auto;
+        width: 60vw;
+        height: 280px;
+    }
+
+    .details-container .videos .key-list {
+        width: 39vw;
+        margin: 5px auto;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width:1281px) {
+    .details-container .videos {
+        height: fit-content;
+    }
+
+    .details-container .videos #player {
+        width: 960px;
+        height: 400px;
+    }
+
+    .details-container .videos .key-list {
+        width: max-content;
+        height: 400px;
+    }
+
+    .details-container .videos .key-list #key {
+        padding: 7px;
+        font-size: 1.2rem;
     }
 }

@@ -32,7 +32,6 @@ export function useCollection(collectionRef) {
       await updateDoc(docRef, {
         favorites,
       });
-      console.log("updated");
     } catch (error) {
       console.log(error);
     }

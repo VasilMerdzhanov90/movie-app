@@ -5,7 +5,6 @@ import {
   listGenerator,
   productionCompaniesGenerator,
   slider,
-  videoSlider,
 } from "../../utils/utils.js";
 
 const template = (data, favorites, handleFavoritesChoice) => html`
@@ -30,9 +29,8 @@ const template = (data, favorites, handleFavoritesChoice) => html`
       <div class="info-wrapper">
         <section class="title">
           <h2>${data.result.title || data.result.name}</h2>
-        </section>
-        ${data.result.last_air_date
-          ? html`<span>last air date ${data.result.last_air_date}</span>
+          ${data.result.last_air_date
+            ? html`<span>last air date ${data.result.last_air_date}</span>
           <span> - ${listGenerator(data.result.genres)}</span>
           ${
             data.result.runtime
@@ -41,14 +39,17 @@ const template = (data, favorites, handleFavoritesChoice) => html`
           }
           <span> - <a href="${data.result.homepage}">Homepage.</a></span>
         </section>`
-          : html`
-              <section class="quick-info">
-                <span>${data.result.release_date}</span>
-                <span> - ${listGenerator(data.result.genres)}</span>
-                <span>- ${data.result.runtime} minutes</span>
-                <span> - <a href="${data.result.homepage}">Homepage.</a></span>
-              </section>
-            `}
+            : html`
+                <section class="quick-info">
+                  <span>${data.result.release_date}</span>
+                  <span> - ${listGenerator(data.result.genres)}</span>
+                  <span>- ${data.result.runtime} minutes</span>
+                  <span>
+                    - <a href="${data.result.homepage}">Homepage.</a></span
+                  >
+                </section>
+              `}
+        </section>
         <section class="overview">
           <h3>Overview:</h3>
           <p>${data.result.overview}</p>
@@ -75,36 +76,36 @@ const template = (data, favorites, handleFavoritesChoice) => html`
       </div>
     </section>
 
-    ${data.videoList.results.length !== 0
-      ? html`<section @click="${videoSlider}" class="media">
-          <h2>Videos (${data.videoList.results.length})</h2>
-          ${data.videoList.results.length > 1
-            ? html`<i class="fa-sharp fa-solid fa-arrow-left left prev"></i>
-                <i class="fa-sharp fa-solid fa-arrow-right right next"></i>`
-            : ""}
-          <ul class="videos">
-            <div class="slide-videos">
-              <ul class="video-list">
-                ${data.videoList.results.map(
-                  (x) => html`
-                    <li>
-                      <iframe
-                      id="player"
-
-                        title="${data.result.title ||
-                        data.result.name ||
-                        data.result.original_title}"
-                        frameborder="0"
-                        src="http://www.youtube.com/embed/${x.key}"
-                      ></iframe>
-                    </li>
-                  `
-                )}
-              </ul>
-            </div>
-          </ul>
-        </section>`
-      : ""}
+    <section>
+      <h2>Videos (${data.videoList.results.length})</h2>
+      ${data.videoList.results.length > 0
+        ? html`<div class="videos">
+            <iframe
+              id="player"
+              frameborder="0"
+              allowfullscreen="allowfullscreen"
+              mozallowfullscreen="mozallowfullscreen"
+              msallowfullscreen="msallowfullscreen"
+              oallowfullscreen="oallowfullscreen"
+              webkitallowfullscreen="webkitallowfullscreen"
+              src="http://www.youtube.com/embed/${data.videoList.results[0]
+                .key}"
+            ></iframe>
+            <ul class="key-list">
+              ${data.videoList.results.map(
+                (x) =>
+                  html`<li id="key" data-key="${x.key}">
+                    <img
+                      class="play-btn"
+                      src="../../../public/acets/play-btn.png"
+                    />
+                    ${x.name}
+                  </li>`
+              )}
+            </ul>
+          </div>`
+        : ""}
+    </section>
 
     <section @click="${slider}" class="cast">
       <h3>Full cast:</h3>
@@ -156,4 +157,14 @@ export function detailsView(ctx) {
     setFavorites(favorites);
     ctx.render(() => template(ctx.data, favorites, handleFavoritesChoice));
   }
+
+  const video = document.querySelector("#player");
+  const keys = document.querySelectorAll("#key");
+  keys.forEach((x) => {
+    x.addEventListener("click", () => {
+      let key = x.dataset.key;
+      console.log(key);
+      video.src = `http://www.youtube.com/embed/${key}`;
+    });
+  });
 }

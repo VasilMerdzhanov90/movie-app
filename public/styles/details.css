@@ -59,6 +59,7 @@
 
 .details-container .top-content .overview p {
     white-space: pre-wrap;
+    width: 90%;
 }
 
 .details-container .top-content .overview p,
@@ -102,8 +103,9 @@
     display: flex;
     justify-content: start;
     gap: 5px;
-    overflow: hidden;
+    overflow: scroll;
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 .details-container .cast .slider p {
@@ -145,7 +147,7 @@
     max-width: 150px;
 }
 
-@media (min-width:319px) and (max-width: 600px) {
+@media (min-width:319px) and (max-width: 769px) {
     .details-container {
         margin: 10px auto;
         padding: 0;
@@ -159,7 +161,7 @@
     .details-container .top-content .img-wrapper .poster {
         margin: 10px;
         border-radius: 8px;
-        max-width: 280px;
+        max-width: 200px;
     }
 
     .details-container .top-content .info-wrapper h2 {
@@ -187,4 +189,60 @@
         max-width: 130px;
     }
 
+}
+
+@media (min-width:770px) and (max-width: 1024px) {
+
+
+    .details-container .top-content .img-wrapper .poster {
+        max-width: 200px;
+    }
+
+    .details-container .top-content .info-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (min-width:1281px) {
+    .details-container .top-content .img-wrapper {
+        max-width: 340px;
+    }
+
+    .details-container .top-content .img-wrapper .poster {
+        margin: 10px;
+        border-radius: 8px;
+        max-width: 340px;
+    }
+
+    .details-container .top-content .info-wrapper h2 {
+        font-size: 2rem;
+    }
+
+    .details-container .top-content .overview {
+        margin-top: 15px;
+    }
+
+    .details-container .top-content .overview>h3 {
+        font-size: 1.4rem;
+    }
+
+    .details-container .top-content .overview p {
+        font-size: 1.15rem;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 90%;
+        margin: 25px auto;
+    }
+
+    .details-container .top-content .prod-companies img {
+        max-height: 45px;
+    }
 }

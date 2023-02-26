@@ -14,9 +14,10 @@ const template = (favorite) => html`
                     class="fav-img"
                     src="http://image.tmdb.org/t/p/w300${x.photoUrl}"
                   />
-                  <p class="fav-title">
-                    ${x.name}
-                  </p>
+                  <div class="fav-text-container">
+                    <p class="fav-title">${x.name}</p>
+                    <p class="fav-overview">${x.overview}</p>
+                  </div>
                 </a>
               </li>
             `
