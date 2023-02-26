@@ -1,23 +1,57 @@
 @import url(./reset.css);
+@import url(./home.css);
 @import url(./navigation.css);
 @import url(./movies.css);
+@import url(./search.css);
+@import url(./details.css);
+@import url(./loginRegister.css);
+@import url(./person.css);
+@import url(./videoContainer.css);
+@import url(./favorite.css);
+@import url('./sections.css');
 @import url('./loader.css');
 
 
 :root {
     --main-text-color: rgb(240, 240, 240);
-    --hover-color: rgb(193, 193, 193);
+    /* --hover-color: rgb(193, 193, 193); */
+    --hover-color: #af4058;
 }
 
 
 body {
     position: relative;
     /* padding: 0 35px; */
-    padding: 0 25px;
+    padding: 0 20px;
+    margin: 0;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background-color: #171717;
     /* background: rgb(0, 0, 0);
     background: linear-gradient(153deg, rgba(0, 0, 0, 1) 0%, rgba(41, 0, 0, 1) 66%); */
+}
+
+.no-content {
+    margin-top: 4rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#image-wrapper {
+    position: relative;
+}
+
+#selected {
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+}
+
+@media (min-width:319px) and (max-width: 769px) {
+    body {
+        padding: 0 10px;
+    }
 }

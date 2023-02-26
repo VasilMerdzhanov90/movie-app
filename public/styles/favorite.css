@@ -1,0 +1,121 @@
+.fav-titles {
+    margin: 35px auto;
+    background-image: url('../acets/background-fav.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.fav-titles>h1,
+.fav-titles>h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* 
+
+.fav-titles .favorites {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 90%;
+}
+
+.fav-title .favorites .fav-list {
+    max-width: 280px;
+    object-fit: contain;
+}
+
+.fav-titles .favorites .fav-list .fav-img {
+    margin: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.fav-titles .favorites .fav-list .fav-title {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    max-width: 280px;
+    text-align: end;
+}
+
+.fav-titles .favorites .fav-over {
+    width: 80%;
+    margin: 0;
+}
+
+@media (min-width:319px) and (max-width: 769px) {
+    .fav-titles {
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    .fav-titles .favorites {
+        margin: 5px auto;
+        padding: 0;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .fav-titles .fav-list {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .fav-titles .favorites .fav-list .fav-img,
+    .fav-titles .favorites .fav-list .fav-title {
+        max-width: 220px;
+    }
+} */
+.favorites {
+    margin: 30px auto;
+}
+
+.favorites .fav-list {
+    margin: 15px;
+}
+
+.favorites .fav-list .fav-href {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.favorites .fav-list .fav-href .fav-title {
+    font-weight: bold;
+    font-style: italic;
+    margin: 8px;
+}
+
+.favorites .fav-list .fav-href .fav-img {
+    margin: auto 0;
+    border-radius: 6px;
+    max-height: 169px;
+    max-width: 300px;
+}
+
+.favorites .fav-list .fav-href:hover {
+    box-shadow: 0px 1px 21px 4px rgba(250, 250, 250, 0.76);
+    -webkit-box-shadow: 0px 1px 21px 4px rgba(250, 250, 250, 0.76);
+    -moz-box-shadow: 0px 1px 21px 4px rgba(250, 250, 250, 0.76);
+
+}
+
+@media screen and (max-width:464px) {
+    .fav-overview {
+        display: none;
+    }
+}
+
+@media (min-width:319px) and (max-width: 769px) {
+    .favorites .fav-list .fav-href {
+        flex-direction: column;
+    }
+}

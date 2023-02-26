@@ -1,25 +1,49 @@
 import { html } from "../../../node_modules/lit-html/lit-html.js";
-import { request } from "../../services/tmdb/data.js";
-
-const template = () => html`
-<section>
-   <h2>Upcoming movies</h2>
-   <div class="upcoming-container">
-      <div class="upcoming">
-         <button class="prev">prev</button>
-         <button class="next">next</button>
-         <ul class="movies">
-            <li class="movie">
-               <p class="poster-title">title</p>
-            </li>
-         </ul>
+const template = (data) => html`
+  <div class="home">
+    <!-- <p>Watch trailers and add titles to you personal favorite list!</p> -->
+    <div class="home-sign">
+      <h2>Join Today</h2>
+      <div class="grid-container">
+        <section>
+          Get access to maintain your own custom personal list, search for
+          movies, tv shows and artists, regardless if it's in theatres, on TV or
+          available on popular streaming services like Netflix, Amazon Prime
+          Video, Apple TV Plus, MUBI, and Curiosity Stream..
+        </section>
+        <ul>
+          <li>Enjoy ad free</li>
+          <li>Maintain a personal watchlist</li>
+          <li>Simple UI</li>
+          <li>Site is using TMDB database</li>
+        </ul>
       </div>
-   </div>
+      <a href="/register"><button>Sign Up</button></a>
+    </div>
 
-</section>
-`
-export function homeView(ctx) {
-   ctx.render(template)
+    <div class="container-slider">
+      <section class="home-movies">
+        <h2>Explore movies</h2>
+        <div class="auto-slider">
+          ${data.moviePosters.map(
+            (x) => html` <img src="http://image.tmdb.org/t/p/w154${x}" /> `
+          )}
+        </div>
+      </section>
+      <section class="home-series">
+        <h2>Explore series</h2>
+        <div class="auto-slider">
+          ${data.seriesPosters.map(
+            (x) => html` <img src="http://image.tmdb.org/t/p/w154${x}" /> `
+          )}
+        </div>
+      </section>
+    </div>
+  </div>
+`;
+
+export async function homeView(ctx) {
+  ctx.render(() => template(ctx.data));
+
+  const [movies, series] = document.querySelectorAll(".auto-slider");
 }
-
-

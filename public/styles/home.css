@@ -1,0 +1,74 @@
+.home-sign {
+    background: url('../acets/GettyImages-1336937059-1600x728.jpg');
+    background-size: cover;
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%;
+    margin: 35px auto;
+}
+
+.home-sign>h2 {
+    font-size: 3rem;
+    padding: 10px;
+    margin: 0;
+}
+
+.home-sign .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.home-sign .grid-container>ul {
+    margin: 0;
+}
+
+.home-sign .grid-container>ul>li {
+    list-style-type: disc;
+}
+.home-sign>a button{
+    margin: 10px;
+    padding: 8px 20px;
+    background-color: black;
+    border: 1px solid var(--main-text-color);
+    border-radius: 6px;
+    color: var(--main-text-color);
+    cursor: pointer;
+}
+.home>p {
+    font-size: 3.2rem;
+    text-align: center;
+}
+
+.home-movies,
+.home-series {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px;
+    gap: 35px;
+}
+
+.home-series {
+    justify-content: left;
+}
+
+.home-series {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.home-movies>h2,
+.home-series>h2 {
+    font-size: 3.5rem;
+}
+
+.auto-slider {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 154px);
+    border: 1px solid var(--main-text-color);
+    border-radius: 8px;
+    overflow: hidden;
+}

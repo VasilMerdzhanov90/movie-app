@@ -1,77 +1,52 @@
-import page from './node_modules/page/page.mjs'
-import { addRender } from './src/middlewares/addRender.js'
-import { loader } from './src/middlewares/loader.js'
-import { preloadData } from './src/middlewares/preloadData.js'
-import { homeView } from './src/views/home/home.js'
-import { moviesView } from './src/views/movies/movies.js'
-import { movieByCategoryView } from './src/views/movies/moviesByCategory.js'
-import { navigationComponent } from './src/views/navigation/navigation.js'
+import page from "./node_modules/page/page.mjs";
+import { addRender } from "./src/middlewares/addRender.js";
+import { noUserGuard, userGuard } from "./src/middlewares/guards.js";
+import { loader } from "./src/middlewares/loader.js";
+import {
+  preloadDetails,
+  preloadHomeData,
+  preloadMovies,
+  preloadPersonDetails,
+  preloadSeries,
+  preloadVideos,
+} from "./src/middlewares/preloadData.js";
+import { userNavigation } from "./src/middlewares/userNavigation.js";
+
+import { categoryView } from "./src/views/category/categoryView.js";
+import { detailsView } from "./src/views/details/details.js";
+import { favoritesView } from "./src/views/favorites/favorites.js";
+import { homeView } from "./src/views/home/home.js";
+import { mainSeriesAndMoviesView } from "./src/views/mainSeriesAndMovies/mainSeriesAndMoviesView.js";
+import { navigationComponent } from "./src/views/navigation/navigation.js";
+import { personDetailsView } from "./src/views/person/person.js";
+import { searchView } from "./src/views/search/search.js";
+import { loginView } from "./src/views/user/login.js";
+import { registerView } from "./src/views/user/register.js";
 
 //middlewares
-page(addRender)
-page(navigationComponent)
+page(addRender);
+page(navigationComponent);
+page(userNavigation);
 page(loader);
-//links
-page('/', homeView)
-page('/movies', moviesView)
-page('/movies/:category/:page', preloadData, movieByCategoryView)
-page('/shows', () => console.log('shows'))
-page('/login', () => console.log('login/register'))
 
+//links
+page("/", preloadHomeData, homeView);
+page("/movies", mainSeriesAndMoviesView);
+page("/movies/:category/:page", preloadMovies, categoryView);
+page("/series", mainSeriesAndMoviesView);
+page("/series/:category/:page", preloadSeries, categoryView);
+page("/search", noUserGuard, searchView);
+page(
+  "/details/:category/:id",
+  noUserGuard,
+  preloadDetails,
+  preloadVideos,
+  detailsView
+);
+page("/person/:id", noUserGuard, preloadPersonDetails, personDetailsView);
+page("/login", userGuard, loginView);
+page("/register", userGuard, registerView);
+page("/favorite", favoritesView);
 
 page();
-
-// const upcoming = document.querySelector('.upcoming');
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-
-// const imgWidth = upcoming.querySelector('img');
-
-// nextBtn.addEventListener('click', (e) => {
-//     upcoming.scrollLeft += imgWidth.clientWidth
-// })
-// prevBtn.addEventListener('click', (e) => {
-//     upcoming.scrollLeft -= imgWidth.clientWidth
-// })
-// const courosel = document.querySelector('.courosel');
-// const firstImg = courosel.querySelectorAll('img')[0]
-// const arrowIcons = document.querySelectorAll('.wrapper button');
-// let firstImgWidth = firstImg.clientWidth + 14
-
-// arrowIcons.forEach(button => {
-//     button.addEventListener('click', () => {
-//         courosel.scrollLeft += button.id == 'left' ? -firstImgWidth : firstImgWidth
-//     })
-// })
-
-
-
-
-// for dragging
-// courosel.addEventListener('mouseup', dragStop);
-// courosel.addEventListener('mousedown', dragStart);
-
-
-// let isDragStart = false, prevPageX, prevScrollLeft;
-
-// const dragStart = (e) => {
-//     isDragStart = true;
-//     prevPageX = e.pageX;
-//     prevScrollLeft = courosel.scrollLeft;
-// }
-// const dragStop = (e) => {
-//     isDragStart = false;
-// }
-// const dragging = (e) => {
-//     if (!isDragStart) {
-//         return
-//     }
-//     e.preventDefault(e)
-//     let positionDiff = e.pageX - prevPageX
-//     courosel.scrollLeft = e.pageX
-//     courosel.scrollLeft = prevScrollLeft - positionDiff
-// }
-
-
-// courosel.addEventListener('mousemove', dragging);
 

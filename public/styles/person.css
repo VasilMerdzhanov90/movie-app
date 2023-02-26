@@ -1,0 +1,142 @@
+.person-details {
+    margin: 35px auto;
+}
+
+.person-details .main-info {
+    background-image: url('../acets/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+}
+
+.person-details .main-info .profile-img {
+    margin: auto 20px;
+    max-width: 360px;
+}
+
+.person-details .main-info .profile-img img {
+    border-radius: 8px;
+}
+
+.person-details .credits .section-btn {
+    margin-top: 5px;
+    width: 48%;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid var(--main-text-color);
+    border-radius: 4px;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.person-details .credits .section-btn:hover {
+    filter: invert(50%);
+}
+
+.person-details .credits .results {
+    max-width: 80vw;
+    margin: 35px auto;
+}
+
+.person-details .credits .results .result-item {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.person-details .credits .results .result-item>a>img {
+    border-radius: 6px;
+    max-width: 166px;
+}
+
+.person-details .credits .results .result-item div>p {
+    font-size: 1.8rem;
+    margin: 8px;
+}
+
+.person-details .credits .results .result-item div>article {
+    width: 60%;
+    margin-left: 10px;
+}
+
+
+@media (min-width:319px) and (max-width: 769px) {
+    .person-details {
+        margin: 15px auto;
+    }
+
+    .person-details .main-info {
+        gap: 8px;
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .person-details .main-info .profile-img {
+        margin: 0 auto;
+        max-width: 240px;
+    }
+
+    .person-details .main-info .profile-img img {
+        max-width: 240px;
+    }
+
+    .person-details .credits .section-btn {
+        font-size: 1rem;
+        padding: 3px;
+    }
+
+    .person-details .credits .results {
+        padding: 0;
+    }
+
+    .person-details .credits .results .result-item>a>img {
+        max-width: 120px;
+    }
+
+    .person-details .credits .results .result-item div>p {
+        font-size: 0.9rem;
+        margin: 3px;
+    }
+
+    .person-details .credits .results .result-item div>article {
+        display: none;
+    }
+}
+
+@media (min-width:770px) and (max-width: 1024px) {
+    .person-details .main-info {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .person-details .main-info .profile-img {
+        margin: 20px;
+    }
+
+    .person-details .main-info .profile-img>img {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .person-details .main-info .details {
+        padding: 15px;
+    }
+
+    .person-details .credits .results .result-item div>p {
+        font-size: 1.4rem;
+        margin: 3px;
+    }
+
+    .person-details .credits .results .result-item div>article {
+        font-size: 0.9rem;
+    }
+
+}

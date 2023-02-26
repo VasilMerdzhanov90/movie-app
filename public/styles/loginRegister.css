@@ -1,0 +1,68 @@
+.sign-user {
+    padding: 20px;
+    margin: 35px auto;
+    border: 1px solid var(--main-text-color);
+    border-radius: 6px;
+    width: 500px;
+    height: min-content;
+}
+
+.sign-user .hint {
+    text-align: center;
+}
+
+.sign-user h1 {
+    font-size: 2.5rem;
+
+}
+
+.sign-user form {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-user form label {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-user form label input {
+    padding: 4px;
+    color: black;
+}
+
+.sign-user .btn-user {
+    margin: 10px;
+    color: var(--main-text-color);
+    border: 1px solid var(--main-text-color);
+    border-radius: 6px;
+    padding: 4px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 220ms ease-in-out;
+}
+
+.sign-user .btn-user:hover {
+    color: black;
+    background-color: var(--main-text-color);
+
+}
+
+.sign-user a {
+    color: rgb(240, 90, 90);
+}
+@media (min-width:319px) and (max-width: 551px) {
+    .sign-user {
+        padding: 5px;
+        width: 95%;
+        height: min-content;
+      }
+      .sign-user h1 {
+        font-size: 2rem;
+      }
+      .sign-user .hint {
+        font-size: 0.9rem;
+      }
+}

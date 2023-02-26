@@ -1,0 +1,248 @@
+.details-container {
+    margin: 35px auto;
+    padding: 35px;
+}
+
+.details-container .top-content {
+    display: grid;
+    grid-template-columns: min-content 80%;
+    /* align-items: center; */
+    background-image: url('../acets/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.details-container .top-content .info-wrapper {
+    margin-left: 10px;
+    width: 85%;
+    margin-top: 25px;
+}
+
+.details-container .top-content .img-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-container .top-content .img-wrapper .poster {
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.details-container .top-content .img-wrapper>button {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid var(--main-text-color);
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.details-container .top-content .info-wrapper h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.details-container .top-content .quick-info {
+    margin-left: 5px;
+}
+
+.details-container .top-content .overview {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.details-container .top-content .overview p {
+    white-space: pre-wrap;
+    width: 90%;
+}
+
+.details-container .top-content .overview p,
+.details-container .top-content .overview h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.details-container .top-content .crew {
+    margin: 10px;
+}
+
+
+.details-container .top-content .prod-companies {
+    width: 80%;
+    display: flex;
+}
+
+.details-container .top-content .prod-companies img {
+    max-height: 40px;
+    margin-right: 8px;
+}
+
+.details-container .top-content .prod-companies div {
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-container .cast {
+    margin: 25px auto;
+    position: relative;
+}
+
+.details-container .cast h3 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.details-container .slider {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.details-container .cast .slider p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.details-container .left,
+.details-container .right {
+    cursor: pointer;
+    position: absolute;
+    font-size: 2rem;
+    border: 1px solid var(--main-text-color);
+    padding: 10px 4px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.525);
+    border-radius: 6px;
+    z-index: 1;
+    transition: padding 220ms ease;
+}
+
+.details-container .left {
+    left: -8px;
+}
+
+.details-container .right {
+    right: -8px;
+}
+
+.details-container .left:hover,
+.details-container .right:hover {
+    padding: 16px 8px;
+}
+
+.details-container .cast .actor-container .img-wrapper img {
+    border-radius: 20px;
+    max-width: 150px;
+}
+
+@media (min-width:319px) and (max-width: 769px) {
+    .details-container {
+        margin: 10px auto;
+        padding: 0;
+    }
+
+    .details-container .top-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-container .top-content .img-wrapper .poster {
+        margin: 10px;
+        border-radius: 8px;
+        max-width: 200px;
+    }
+
+    .details-container .top-content .info-wrapper h2 {
+        font-size: 1.6rem;
+    }
+
+    .details-container .top-content .overview {
+        margin-top: 15px;
+        padding: 0px;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .details-container .top-content .prod-companies img {
+        max-height: 22px;
+        margin-right: 8px;
+    }
+
+    .details-container .cast .actor-container .img-wrapper img {
+        border-radius: 20px;
+        max-width: 130px;
+    }
+
+}
+
+@media (min-width:770px) and (max-width: 1024px) {
+
+
+    .details-container .top-content .img-wrapper .poster {
+        max-width: 200px;
+    }
+
+    .details-container .top-content .info-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (min-width:1281px) {
+    .details-container .top-content .img-wrapper {
+        max-width: 340px;
+    }
+
+    .details-container .top-content .img-wrapper .poster {
+        margin: 10px;
+        border-radius: 8px;
+        max-width: 340px;
+    }
+
+    .details-container .top-content .info-wrapper h2 {
+        font-size: 2rem;
+    }
+
+    .details-container .top-content .overview {
+        margin-top: 15px;
+    }
+
+    .details-container .top-content .overview>h3 {
+        font-size: 1.4rem;
+    }
+
+    .details-container .top-content .overview p {
+        font-size: 1.15rem;
+    }
+
+    .details-container .top-content .prod-companies {
+        width: 90%;
+        margin: 25px auto;
+    }
+
+    .details-container .top-content .prod-companies img {
+        max-height: 45px;
+    }
+}

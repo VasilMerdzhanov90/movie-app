@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/VasilMerdzhanov90/movie-app#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "firebase": "^9.17.1",
     "firestore": "^1.1.6",
     "lit-html": "^2.6.1",
     "lite-server": "^2.6.1",
-    "page": "^1.11.6",
-    "page.js": "^4.13.3"
+    "page": "^1.11.6"
   }
 }
