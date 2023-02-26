@@ -1,4 +1,4 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/lit/lit-html.js";
 import { getUser } from "../../utils/userData.js";
 
 const template = (favorite) => html`

@@ -1,4 +1,4 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/lit/lit-html.js";
 import { imgTemplate } from "../../utils/utils.js";
 
 let genderEnum = ["Transgender", "Female", "Male"];

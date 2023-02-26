@@ -1,4 +1,4 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/lit/lit-html.js";
 import { useCollection } from "../../services/firebaseDB/data.js";
 import { getUser, setFavorites } from "../../utils/userData.js";
 import {
@@ -97,7 +97,7 @@ const template = (data, favorites, handleFavoritesChoice) => html`
                   html`<li id="key" data-key="${x.key}">
                     <img
                       class="play-btn"
-                      src="../../../public/acets/play-btn.png"
+                      src="../../../acets/play-btn.png"
                     />
                     ${x.name}
                   </li>`

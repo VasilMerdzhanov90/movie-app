@@ -1,4 +1,4 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/lit/lit-html.js";
 const template = (data) => html`
   <div class="home">
     <!-- <p>Watch trailers and add titles to you personal favorite list!</p> -->

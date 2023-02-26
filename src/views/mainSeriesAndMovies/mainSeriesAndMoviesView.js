@@ -1,4 +1,4 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/lit/lit-html.js";
 import { requestData } from "../../services/tmdb/requestDataTMDB.js";
 import { getUser } from "../../utils/userData.js";
 import { categoryListGenerator, sliderPreview } from "../../utils/utils.js";
@@ -36,7 +36,7 @@ const templateRow = (videoTitle, type) => html`
         alt="poster"
       />
       ${fav?.hasOwnProperty(videoTitle.id)
-        ? html`<img id="selected" src="../../../public/acets/selected.png" />`
+        ? html`<img id="selected" src="../../../acets/selected.png" />`
         : ""}
       <p class="movie-title">${videoTitle.name || videoTitle.title}</p>
     </a>

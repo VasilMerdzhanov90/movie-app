@@ -1,4 +1,4 @@
-import page from "../node_modules/page/page.mjs";
+import page from "./src/lib/page/page.mjs";
 
 import { addRender } from "../src/middlewares/addRender.js";
 import { noUserGuard, userGuard } from "../src/middlewares/guards.js";
@@ -50,4 +50,3 @@ page("/register", userGuard, registerView);
 page("/favorite", favoritesView);
 
 page();
-
