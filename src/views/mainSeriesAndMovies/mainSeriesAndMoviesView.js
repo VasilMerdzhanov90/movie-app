@@ -31,7 +31,7 @@ const templateRow = (videoTitle, type) => html`
     <a href="/details/${type}/${videoTitle.id}">
       <img
         id="image"
-        src="http://image.tmdb.org/t/p/w300${videoTitle.poster_path ||
+        src="https://image.tmdb.org/t/p/w300${videoTitle.poster_path ||
         videoTitle.backdrop_path}"
         alt="poster"
       />
@@ -45,7 +45,6 @@ const templateRow = (videoTitle, type) => html`
 
 export async function mainSeriesAndMoviesView(ctx) {
   const type = ctx.pathname.split("/")[1];
-  console.log(ctx);
   const { favorites } = getUser();
   fav = favorites;
   if (type === "movies") {

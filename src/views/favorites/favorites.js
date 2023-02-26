@@ -29,6 +29,5 @@ const template = (favorite) => html`
 
 export function favoritesView(ctx) {
   const { user, favorites } = getUser();
-  console.log(Object.values(favorites));
   ctx.render(() => template(Object.values(favorites)));
 }

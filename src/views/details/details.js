@@ -157,8 +157,7 @@ export function detailsView(ctx) {
   keys.forEach((x) => {
     x.addEventListener("click", () => {
       let key = x.dataset.key;
-      console.log(key);
-      video.src = `http://www.youtube.com/embed/${key}`;
+      video.src = `https://www.youtube.com/embed/${key}`;
     });
   });
 }

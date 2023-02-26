@@ -1,5 +1,5 @@
 import { userActions } from "../services/firebaseDB/users.js";
-
+import { html } from "../lib/lit/lit-html.js";
 const { signIn, login } = userActions();
 
 //handler for register
@@ -67,5 +67,3 @@ export async function onSubmitLogin(ctx, data) {
     }
   }
 }
-
-
