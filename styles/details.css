@@ -107,7 +107,9 @@
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
-
+.details-container .slider::-webkit-scrollbar {
+    width: 0 !important
+}
 .details-container .cast .slider p {
     margin: 0;
     font-size: 1rem;

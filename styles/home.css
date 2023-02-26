@@ -19,6 +19,10 @@
     gap: 10px;
 }
 
+.home-sign .grid-container>p {
+    margin: 0;
+}
+
 .home-sign .grid-container>ul {
     margin: 0;
 }
@@ -26,7 +30,8 @@
 .home-sign .grid-container>ul>li {
     list-style-type: disc;
 }
-.home-sign>a button{
+
+.home-sign>a button {
     margin: 10px;
     padding: 8px 20px;
     background-color: black;
@@ -35,6 +40,7 @@
     color: var(--main-text-color);
     cursor: pointer;
 }
+
 .home>p {
     font-size: 3.2rem;
     text-align: center;
@@ -67,8 +73,30 @@
 .auto-slider {
     margin-top: 35px;
     display: grid;
-    grid-template-columns: repeat(3, 154px);
+    grid-template-columns: repeat(3, auto);
     border: 1px solid var(--main-text-color);
     border-radius: 8px;
     overflow: hidden;
+}
+
+.auto-slider>img {
+    max-width: 100px;
+}
+
+@media (min-width:319px) and (max-width:640px) {
+    .home-sign {
+        padding: 10px;
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .home-sign>h2 {
+        font-size: 1.8rem;
+        padding: 8px;
+    }
+
+    .home-sign .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
 }

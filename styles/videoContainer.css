@@ -19,7 +19,7 @@
     margin: 15px auto;
     width: 640px;
     max-height: 340px;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .details-container .videos .key-list #key {

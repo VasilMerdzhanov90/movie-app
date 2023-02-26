@@ -5,12 +5,12 @@ const template = (data) => html`
     <div class="home-sign">
       <h2>Join Today</h2>
       <div class="grid-container">
-        <section>
+        <p>
           Get access to maintain your own custom personal list, search for
           movies, tv shows and artists, regardless if it's in theatres, on TV or
           available on popular streaming services like Netflix, Amazon Prime
           Video, Apple TV Plus, MUBI, and Curiosity Stream..
-        </section>
+        </p>
         <ul>
           <li>Enjoy ad free</li>
           <li>Maintain a personal watchlist</li>
