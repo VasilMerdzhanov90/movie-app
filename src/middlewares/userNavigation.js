@@ -1,4 +1,4 @@
-import { html } from "../../node_modules/lit-html/lit-html.js";
+import { html } from "../lib/lit/lit-html.js";
 import { userActions } from "../services/firebaseDB/users.js";
 import { getUser } from "../utils/userData.js";
 

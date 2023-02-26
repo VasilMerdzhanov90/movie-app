@@ -1,4 +1,4 @@
-import { render } from "../../node_modules/lit-html/lit-html.js";
+import { render } from "../lib/lit/lit-html.js";
 
 export function addRender(ctx, next) {
     ctx.render = renderContent
