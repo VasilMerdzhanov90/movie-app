@@ -1,6 +1,5 @@
 # movie-app
 
-
 Website for exploring movies and tv shows info, videos, actors, directors and Etc., 
 build with Vanilla JS and libraries like Lit-HTML for templating and Page.JS for routing.
 
@@ -8,7 +7,8 @@ This project is build with TMDB DATABASE.
 
 Link to deployed project: https://movie-app-theta-two.vercel.app/
 
-Simple and responsive UI, fully optimised for mobile and desktop use.
+Responsive design, fully optimised for mobile, tablet and desktop use.
+
  - Basic content is separated to categoryes:
    - Movies: Genres, upcoming, playing, trending.
    - TV Shows: Rated, Netflix, Popular, Aired.
