@@ -28,7 +28,13 @@ export async function onSubmitRegister(ctx, data) {
 
     const newUser = await signIn({ email, password, displayName });
 
-    if (typeof newUser == "string") {
+    if (newUser.code == "auth/weak-password") {
+      ctx.render(
+        () => html`<p>Password should be at least 6 characters!</p>`,
+        document.getElementById("error")
+      );
+      submitBtn.disabled = false;
+    } else if (newUser.code == "auth/email-already-in-use") {
       ctx.render(
         () => html`<p>Email already in use!</p>`,
         document.getElementById("error")

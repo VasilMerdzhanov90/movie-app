@@ -30,7 +30,7 @@ export function userActions() {
       setUser({ user });
       return user;
     } catch (err) {
-      return err.message;
+      return err;
     }
   };
 
