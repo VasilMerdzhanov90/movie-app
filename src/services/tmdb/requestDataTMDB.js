@@ -79,8 +79,8 @@ export function requestData() {
   const loadMainContent = async (type, category, page) => {
     url =
       type === "movies"
-        ? localhostUrl + movieRequestLinks[category](page)
-        : localhostUrl + seriesRequestLinks[category](page);
+        ? baseServiceUrl + movieRequestLinks[category](page)
+        : baseServiceUrl + seriesRequestLinks[category](page);
 
     return await request(url);
   };

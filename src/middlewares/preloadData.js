@@ -10,8 +10,11 @@ const {
 } = requestData();
 
 export async function preloadMovies(ctx, next) {
-  console.log(ctx);
-  let result = await loadMovies(ctx.params.category, ctx.params.page);
+  let result = await loadMainContent(
+    ctx.path.split("/")[1],
+    ctx.params.category,
+    ctx.params.page
+  );
   result.results = result.results.filter(
     (x) => x.backdrop_path !== null || x.poster_path !== null
   );
@@ -21,7 +24,11 @@ export async function preloadMovies(ctx, next) {
 }
 
 export async function preloadSeries(ctx, next) {
-  let result = await loadSeries(ctx.params.category, ctx.params.page);
+  let result = await loadMainContent(
+    ctx.path.split("/")[1],
+    ctx.params.category,
+    ctx.params.page
+  );
   result.results = result.results.filter(
     (x) => x.backdrop_path !== null || x.poster_path !== null
   );

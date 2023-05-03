@@ -74,23 +74,19 @@ export async function mainSeriesAndMoviesView(ctx) {
       { upcoming: await loadMainContent("movies", "upcoming", 1) },
       { playing: await loadMainContent("movies", "playing", 1) },
       { trending: await loadMainContent("movies", "trending", 1) },
-      { action: await loadMainContent("movies", "action", 1) },
-      { comedy: await loadMainContent("movies", "comedy", 1) },
-      { horror: await loadMainContent("movies", "horror", 1) },
-      { horror: await loadMainContent("movies", "trending", 1) },
+      // { action: await loadMainContent("movies", "action", 1) },
+      // { comedy: await loadMainContent("movies", "comedy", 1) },
+      // { horror: await loadMainContent("movies", "horror", 1) },
     ]);
-    console.log(result);
-
     ctx.render(() => mainTemplate(result, type));
   } else if (type === "series") {
     const result = await Promise.all([
+      { popular: await loadMainContent("series", "popular", 1) },
       { rated: await loadMainContent("series", "rated", 1) },
       { netflix: await loadMainContent("series", "netflix", 1) },
-      { aired: await loadMainContent("series", "aired", 1) },
-      { popular: await loadMainContent("series", "popular", 1) },
-      { todays: await loadMainContent("series", "todays", 1) },
+      // { aired: await loadMainContent("series", "aired", 1) },
+      // { todays: await loadMainContent("series", "todays", 1) },
     ]);
-    console.log(result);
     ctx.render(() => mainTemplate(result, type));
   }
 
