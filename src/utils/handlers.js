@@ -69,6 +69,7 @@ export async function onSubmitLogin(ctx, data) {
       );
       submitBtn.disabled = false;
     } else {
+      console.log('/////////')
       ctx.page.redirect("/");
     }
   }

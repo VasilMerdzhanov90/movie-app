@@ -1,3 +1,4 @@
+import { getUser } from "../../utils/userData.js";
 import { isPendingHandler } from "../../utils/utils.js";
 import {
   movieRequestLinks,
@@ -5,16 +6,54 @@ import {
   seriesRequestLinks,
 } from "./linksAndAPI.js";
 
+const tmdbURL = "https://tmdb-service.onrender.com/";
+const baseServiceUrl = "https://tmdb-service.onrender.com/";
+const localhostUrl = "http://localhost:3030/";
 const baseURL = "https://api.themoviedb.org/3";
 const trailerURL = "https://api.themoviedb.org/3/movie/";
 
+// async function request(fullURL) {
+//   isPendingHandler(true);
+//   try {
+//     const response = await fetch(fullURL);
+//     if (response.ok) {
+//       // const newResponse = await fetch(
+//       //   `http://localhost:3030/main/movies/upcoming/1`,
+//       //   {
+//       //     method: "GET",
+//       //     headers: {
+//       //       uid: uid,
+//       //     },
+//       //   }
+//       // );
+//       isPendingHandler(false);
+//       return response.json();
+//     } else {
+//       isPendingHandler(false);
+//       throw new Error(response);
+//     }
+//   } catch (err) {
+//     isPendingHandler(false);
+//     throw new Error(err);
+//   }
+// }
+
 async function request(fullURL) {
+  const currentUser = getUser();
+  const uid = currentUser?.user?.user.user.uid;
+
   isPendingHandler(true);
   try {
-    const response = await fetch(fullURL);
+    const response = await fetch(fullURL, {
+      method: "GET",
+      headers: {
+        uid: uid,
+      },
+    });
+
     if (response.ok) {
       isPendingHandler(false);
-      return response.json();
+      return await response.json();
     } else {
       isPendingHandler(false);
       throw new Error(response);
@@ -24,17 +63,25 @@ async function request(fullURL) {
     throw new Error(err);
   }
 }
-
 export function requestData() {
   let url = "";
 
-  const loadMovies = async (category, page) => {
-    url = baseURL + movieRequestLinks[category](page);
-    return await request(url);
-  };
+  // const loadMovies = async (category, page) => {
+  //   url = baseURL + movieRequestLinks[category](page);
+  //   return await request(url);
+  // };
 
-  const loadSeries = async (category, page) => {
-    url = baseURL + seriesRequestLinks[category](page);
+  // const loadSeries = async (category, page) => {
+  //   url = baseURL + seriesRequestLinks[category](page);
+  //   return await request(url);
+  // };
+
+  const loadMainContent = async (type, category, page) => {
+    url =
+      type === "movies"
+        ? localhostUrl + movieRequestLinks[category](page)
+        : localhostUrl + seriesRequestLinks[category](page);
+
     return await request(url);
   };
 
@@ -96,8 +143,10 @@ export function requestData() {
   };
 
   return {
-    loadMovies,
-    loadSeries,
+    // loadMovies,
+    // loadSeries,
+    loadMainContent,
+
     videoDataLoader,
     searchById,
     getCredits,

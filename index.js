@@ -31,12 +31,12 @@ page(userNavigation);
 page(loader);
 
 //links
-page("/", preloadHomeData, homeView);
-page("/movies", mainSeriesAndMoviesView);
-page("/movies/:category/:page", preloadMovies, categoryView);
-page("/series", mainSeriesAndMoviesView);
-page("/series/:category/:page", preloadSeries, categoryView);
-page("/search", noUserGuard, searchView);
+page("/", noUserGuard, preloadHomeData, homeView);
+page("/movies", noUserGuard, mainSeriesAndMoviesView);
+page("/movies/:category/:page", noUserGuard, preloadMovies, categoryView);
+page("/series", noUserGuard, mainSeriesAndMoviesView);
+page("/series/:category/:page", noUserGuard, preloadSeries, categoryView);
+page("/search", noUserGuard, noUserGuard, searchView);
 page(
   "/details/:category/:id",
   noUserGuard,

@@ -2,7 +2,7 @@ import { html } from "../../lib/lit/lit-html.js";
 import { requestData } from "../../services/tmdb/requestDataTMDB.js";
 import { getUser } from "../../utils/userData.js";
 import { categoryListGenerator, sliderPreview } from "../../utils/utils.js";
-const { loadMovies, loadSeries } = requestData();
+const { loadMovies, loadSeries, loadMainContent } = requestData();
 
 let fav;
 
@@ -47,25 +47,50 @@ export async function mainSeriesAndMoviesView(ctx) {
   const type = ctx.pathname.split("/")[1];
   const { favorites } = getUser();
   fav = favorites;
+  // if (type === "movies") {
+  //   const result = await Promise.all([
+  //     { upcoming: await loadMovies("upcoming", 1) },
+  //     { playing: await loadMovies("playing", 1) },
+  //     { trending: await loadMovies("trending", 1) },
+  //     { action: await loadMovies("action", 1) },
+  //     { comedy: await loadMovies("comedy", 1) },
+  //     { horror: await loadMovies("horror", 1) },
+  //     { horror: await loadMovies("trending", 1) },
+  //   ]);
+  //   ctx.render(() => mainTemplate(result, type));
+  // } else if (type === "series") {
+  //   const result = await Promise.all([
+  //     { rated: await loadSeries("rated", 1) },
+  //     { netflix: await loadSeries("netflix", 1) },
+  //     { aired: await loadSeries("aired", 1) },
+  //     { popular: await loadSeries("popular", 1) },
+  //     { todays: await loadSeries("todays", 1) },
+  //   ]);
+  //   ctx.render(() => mainTemplate(result, type));
+  // }
+
   if (type === "movies") {
     const result = await Promise.all([
-      { upcoming: await loadMovies("upcoming", 1) },
-      { playing: await loadMovies("playing", 1) },
-      { trending: await loadMovies("trending", 1) },
-      { action: await loadMovies("action", 1) },
-      { comedy: await loadMovies("comedy", 1) },
-      { horror: await loadMovies("horror", 1) },
-      { horror: await loadMovies("trending", 1) },
+      { upcoming: await loadMainContent("movies", "upcoming", 1) },
+      { playing: await loadMainContent("movies", "playing", 1) },
+      { trending: await loadMainContent("movies", "trending", 1) },
+      { action: await loadMainContent("movies", "action", 1) },
+      { comedy: await loadMainContent("movies", "comedy", 1) },
+      { horror: await loadMainContent("movies", "horror", 1) },
+      { horror: await loadMainContent("movies", "trending", 1) },
     ]);
+    console.log(result);
+
     ctx.render(() => mainTemplate(result, type));
   } else if (type === "series") {
     const result = await Promise.all([
-      { rated: await loadSeries("rated", 1) },
-      { netflix: await loadSeries("netflix", 1) },
-      { aired: await loadSeries("aired", 1) },
-      { popular: await loadSeries("popular", 1) },
-      { todays: await loadSeries("todays", 1) },
+      { rated: await loadMainContent("series", "rated", 1) },
+      { netflix: await loadMainContent("series", "netflix", 1) },
+      { aired: await loadMainContent("series", "aired", 1) },
+      { popular: await loadMainContent("series", "popular", 1) },
+      { todays: await loadMainContent("series", "todays", 1) },
     ]);
+    console.log(result);
     ctx.render(() => mainTemplate(result, type));
   }
 
