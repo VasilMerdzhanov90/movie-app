@@ -1,3 +1,4 @@
+import { detailsLinks } from "../services/tmdb/linksAndAPI.js";
 import { requestData } from "../services/tmdb/requestDataTMDB.js";
 
 const {
@@ -46,9 +47,9 @@ export async function preloadDetails(ctx, next) {
     producers: [],
     writers: [],
   };
+
   let result = await searchById(id, category);
   let credits = await getCredits(id, category);
-
   ctx.data.result = result;
   ctx.data.credits = credits;
 
@@ -68,7 +69,7 @@ export async function preloadDetails(ctx, next) {
 export async function preloadVideos(ctx, next) {
   const category = ctx.path.split("/")[2];
   const id = ctx.params.id;
-  let videoList = await getVideoList(id, category);
+  let videoList = await getVideoList(category, id);
 
   ctx.data.videoList = videoList;
   next();

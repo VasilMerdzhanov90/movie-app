@@ -1,6 +1,7 @@
 import { getUser } from "../../utils/userData.js";
 import { isPendingHandler } from "../../utils/utils.js";
 import {
+  detailsLinks,
   movieRequestLinks,
   personRequestLinks,
   seriesRequestLinks,
@@ -41,8 +42,9 @@ const trailerURL = "https://api.themoviedb.org/3/movie/";
 async function request(fullURL) {
   const currentUser = getUser();
   const uid = currentUser?.user?.user.user.uid;
-
+  console.log(fullURL);
   isPendingHandler(true);
+
   try {
     const response = await fetch(fullURL, {
       method: "GET",
@@ -50,7 +52,7 @@ async function request(fullURL) {
         uid: uid,
       },
     });
-
+    console.log(response);
     if (response.ok) {
       isPendingHandler(false);
       return await response.json();
@@ -66,16 +68,6 @@ async function request(fullURL) {
 export function requestData() {
   let url = "";
 
-  // const loadMovies = async (category, page) => {
-  //   url = baseURL + movieRequestLinks[category](page);
-  //   return await request(url);
-  // };
-
-  // const loadSeries = async (category, page) => {
-  //   url = baseURL + seriesRequestLinks[category](page);
-  //   return await request(url);
-  // };
-
   const loadMainContent = async (type, category, page) => {
     url =
       type === "movies"
@@ -85,35 +77,23 @@ export function requestData() {
     return await request(url);
   };
 
-  const videoDataLoader = async (movieId) => {
-    url = trailerURL + movieId + movieRequestLinks.videoSearch;
-    return await request(url);
-  };
+  // const videoDataLoader = async (movieId) => {
+  //   url = trailerURL + movieId + movieRequestLinks.videoSearch;
+  //   return await request(url);
+  // };
 
   const searchById = async (id, category) => {
-    const urlStructure =
-      category === "movies"
-        ? movieRequestLinks.movieSearchById(id)
-        : seriesRequestLinks.seriesSearchById(id);
-    url = baseURL + urlStructure;
-    return await request(url);
+    return await request(
+      baseServiceUrl + detailsLinks.searchById(category, id)
+    );
   };
   const getCredits = async (id, category) => {
-    const urlStructure =
-      category === "movies"
-        ? movieRequestLinks.movieCredits(id)
-        : seriesRequestLinks.seriesCredits(id);
-    url = baseURL + urlStructure;
-
-    return await request(url);
+    return await request(
+      baseServiceUrl + detailsLinks.getCredits(category, id)
+    );
   };
-  const getVideoList = async (id, category) => {
-    const urlStructure =
-      category === "movies"
-        ? movieRequestLinks.videoSearch(id)
-        : seriesRequestLinks.videoSearch(id);
-    url = baseURL + urlStructure;
-    return await request(url);
+  const getVideoList = async (category, id) => {
+    return await request(baseServiceUrl + detailsLinks.videoList(category, id));
   };
 
   const getPersonDetails = async (id) => {
@@ -143,11 +123,8 @@ export function requestData() {
   };
 
   return {
-    // loadMovies,
-    // loadSeries,
     loadMainContent,
-
-    videoDataLoader,
+    // videoDataLoader,
     searchById,
     getCredits,
     getVideoList,
